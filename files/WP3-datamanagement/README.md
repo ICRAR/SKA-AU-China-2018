@@ -12,10 +12,15 @@ Deliverable - (a) An NGAS cluster is running inside SHAO cluster that manages al
 
 ### Day 1 Targets
 1. Install and configure NGAS instance at SHAO - Done
-2. Create PostgeSQL data
+2. Create PostgeSQL data - DOne
 3. Install CASDA VO Tools
-4. Describe how catalogues will be accessed
+4. Describe how catalogues will be accessed - Done
 5. Define how trigger will be sent to pipeline to notify new data available
 6. Define how pipeline will access data from a new observation
 
-
+### Interfaces
+#### How catalogues will be accessed
+1. TopCat access TAP server at http://202.127.29.97:8888/casda_vo_tools/tap
+2. Query: select * from ivoa.obscore where dataproduct_subtype = 
+3. Select row with appropriate catalogue
+4. Click Access URL to download catalogue

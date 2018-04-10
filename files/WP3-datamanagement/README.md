@@ -7,6 +7,8 @@ Deliverable - (a) An NGAS cluster is running inside SHAO cluster that manages al
 * NGAS: http://ngas.readthedocs.io/en/latest/
 * CASDA VO Tools: https://github.com/csiro-rds/casda_vo_tools
 * PostgreSQL: https://www.postgresql.org/
+* Aladin: http://aladin.u-strasbg.fr/AladinDesktop/
+* TopCat: http://www.star.bris.ac.uk/~mbt/topcat/
 
 ### Day 1 Targets
 1. Install and configure NGAS instance at SHAO - Done

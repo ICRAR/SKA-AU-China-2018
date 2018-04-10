@@ -1,0 +1,30 @@
+# Steps to get ASKAPsoft run on SHAO cluster
+# Relevant modules have been build on the SHAO to facilitate 
+# execution of ASKAPsoft application. You need to execute the 
+# following to make use of the tools in the modules: 
+module use /home/askap/Software/modulefiles
+module load askapsoft
+export AIPSPATH=/home/data1/askap_big_data/ASKAPsdp-0.20.3/Code/Base/accessors/current/
+
+# For visualisation of casa/fits images: 
+module load casa
+
+# Some notes specific to executing the source-finder "selavy": 
+# (Run the above commands)
+executable name: selavy 
+example data set: /home/askap/ska_big_data_workshop/data 
+example selavy parset: /home/askap/ska_big_data_workshop/selavy.in 
+example slurm file (needed to execute selavy using srun): /home/askap/ska_big_data_workshop/selavy.sbatch
+
+# Execution command (from the working directory: /home/askap/ska_big_data_workshop): 
+# The parset file "selavy.in" is expected in the current working directory. 
+>sbatch selavy.sbatch
+
+# Useful/Relevant Output generated in current working directory: 
+# 1. Catalogue VOTable: 
+# 2. Catalogue in ASCII: 
+
+# detailed documentation on selavy: www.atnf.csiro.au/computing/software/askapsoft/sdp/docs/current/analysis/index.html 
+#
+# Exercise 1:  Run :1
+# 

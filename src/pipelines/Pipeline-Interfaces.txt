@@ -1,0 +1,17 @@
+Interfaces from source-finding point-of-view
+
+Input to overall pipeline:
+      - trigger to start SF pipeline
+      - get FileID to for image to search
+      - e.g. runPipeline.sh FileID
+      - In datamanagement - have kickoff_source_extractor.py that executes the wrapper script to kick off pipeline.
+
+Interface with NGAS:
+      - get an ASKAP image based on the file ID within NGAS
+      - wget 159.226.233.198:7777/RETRIEVE?file_id=observations-2338-image_cubes-image.i.SB2338.cont.restored.fits
+
+Sending to NGAS:
+      - For sending the XML catalogue (e.g. called selavy-results.components.xml) to the archive
+      - wget --post-file=selavy-results.components.xml --header "Content-Type: application/VOTABLE" 159.226.233.198:7777/ARCHIVE?filename=selavy-results.components.xml
+      - check application type? 
+      - QUESTION - should we interact directly with NGAS here? Probably for this purpose is fine.

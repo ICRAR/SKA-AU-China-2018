@@ -2,6 +2,10 @@
 
 This is the repository for the SKA Australia/China Big data Workshop.
 
+The documentation should go into the [Wiki] if it can.
+This is the prefered place for documentation. 
+If you are adding images to the Wiki thn put then in the appropriate folder under documentation and link to them.
+
 The folders are structured as follows:
 * files - an area for files that are needed by the Wiki
   * WP1-datatransfer
@@ -19,4 +23,3 @@ The folders are structured as follows:
   * pipelines - WP 2
   * testing - integration and testing
 
-The wiki home page is <https://github.com/ICRAR/SKA-AU-China-2018/wiki> 

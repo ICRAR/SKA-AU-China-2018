@@ -2,7 +2,7 @@
 
 This is the repository for the SKA Australia/China Big data Workshop.
 
-The documentation should go into the [Wiki] if it can.
+The documentation should go into the [Wiki](wiki) if it can.
 This is the prefered place for documentation. 
 If you are adding images to the Wiki thn put then in the appropriate folder under documentation and link to them.
 

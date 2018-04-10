@@ -1,6 +1,6 @@
 # SKA-AU-China-2018
 
-This is the repository for the SKA Australia/China Big data Workshop. :au: :cn:
+This is the repository for the SKA Australia/China Big data Workshop.
 
 The folders are structured as follows:
 * files - an area for files that are needed by the Wiki
@@ -18,3 +18,5 @@ The folders are structured as follows:
   * integration - WP 5
   * pipelines - WP 2
   * testing - integration and testing
+
+The wiki is [here]|(https://github.com/ICRAR/SKA-AU-China-2018/wiki) 

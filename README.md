@@ -19,4 +19,4 @@ The folders are structured as follows:
   * pipelines - WP 2
   * testing - integration and testing
 
-The wiki is [here]|(https://github.com/ICRAR/SKA-AU-China-2018/wiki) 
+The wiki home page is <https://github.com/ICRAR/SKA-AU-China-2018/wiki> 

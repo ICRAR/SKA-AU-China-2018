@@ -1,0 +1,3 @@
+# SKA-AU-China-2018 - **pipelines**
+
+## WP 2 – Pipelines### WP 2.1 AlgorithmsDeliverable - software running inside the SHAO cluster - flagging (across time and baselines), distributed calibration (across frequencies, SAGECal, RTS, ASKAPsoft), and imaging pipeline with quality control, source finding (Sofia, Duchamp).### WP 2.1.1 Ingest (Flagging & Calibration) WP 2.1.2 Imaging### WP 2.1.3 Source Finding

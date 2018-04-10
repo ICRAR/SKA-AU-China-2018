@@ -1,0 +1,26 @@
+Global Objectives:
+* Test Link
+* Troubleshoot Link
+* MWA transfer
+* ASKAP transfer
+* MWA/ASKAP metadata transfer
+* Diagnmostics / monitoring
+
+Sprint 1:
+* Test Link
+** iperf test
+*** install iperf3 on Pawsey
+*** install iperf2 on SHAO cluster
+** obsdownload test
+* Metadata transfer
+** Python interface to transfer metadata into metadata postgres db
+
+MWA transfer
+* NGAS subscription to push data to SHAO
+** Stage data in the background
+** NGAS subscription pushes data
+
+ASKAP transfer
+* verify ASKAP transfer of data (NGAS subscription)
+* ASKAP transfer of metadata (ASKAP / CASDA TAP->new code on SHAO to retrieve and then store into postgres db)
+* MWA transfer of metadata (MWA ASVO TAP->new code on SHAO to retrieve and then store into postgres db)

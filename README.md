@@ -1,6 +1,6 @@
 # SKA-AU-China-2018
 
-This is the repository for the SKA Australia/China Big data Workshop.
+This github repo, wiki and associated documentation is the product of the efforts from the __2nd Australia-China SKA Big Data Workshop__ held at the Shanghai Astronomical Observatory, Shanghai, China 10-12 April 2018.
 
 The documentation should go into the [Wiki](wiki) if it can.
 This is the prefered place for documentation. 

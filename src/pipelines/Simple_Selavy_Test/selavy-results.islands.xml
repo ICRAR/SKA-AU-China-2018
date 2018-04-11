@@ -47,18 +47,18 @@
       <FIELD name="flux_peak" ID="col_flux_peak" ucd="phot.flux.density;stat.max;em.radio" datatype="float" unit="mJy/beam" width="8" precision="3"/>
       <FIELD name="mean_background" ID="col_mean_background" ucd="askap:phot.flux.density.voxel;instr.skyLevel;stat.mean;em.radio" datatype="float" unit="mJy/beam" width="5" precision="3"/>
       <FIELD name="background_noise" ID="col_background_noise" ucd="askap:phot.flux.density.voxel;instr.skyLevel;askap:stat.rms;em.radio" datatype="float" unit="mJy/beam" width="5" precision="3"/>
-      <FIELD name="max_residual" ID="col_mean_background" ucd="askap:phot.flux.density.voxel;stat.max;src.net;em.radio" datatype="float" unit="mJy/beam" width="6" precision="3"/>
-      <FIELD name="min_residual" ID="col_mean_background" ucd="askap:phot.flux.density.voxel;stat.min;src.net;em.radio" datatype="float" unit="mJy/beam" width="8" precision="3"/>
-      <FIELD name="mean_residual" ID="col_mean_background" ucd="askap:phot.flux.density.voxel;stat.mean;src.net;em.radio" datatype="float" unit="mJy/beam" width="6" precision="3"/>
-      <FIELD name="max_residual" ID="col_mean_background" ucd="askap:phot.flux.density.voxel;askap:stat.rms;src.net;em.radio" datatype="float" unit="mJy/beam" width="6" precision="3"/>
-      <FIELD name="max_residual" ID="col_mean_background" ucd="askap:phot.flux.density.voxel;stat.stdev;src.net;em.radio" datatype="float" unit="mJy/beam" width="6" precision="3"/>
+      <FIELD name="max_residual" ID="col_max_residual" ucd="askap:phot.flux.density.voxel;stat.max;src.net;em.radio" datatype="float" unit="mJy/beam" width="6" precision="3"/>
+      <FIELD name="min_residual" ID="col_min_residual" ucd="askap:phot.flux.density.voxel;stat.min;src.net;em.radio" datatype="float" unit="mJy/beam" width="8" precision="3"/>
+      <FIELD name="mean_residual" ID="col_mean_residual" ucd="askap:phot.flux.density.voxel;stat.mean;src.net;em.radio" datatype="float" unit="mJy/beam" width="6" precision="3"/>
+      <FIELD name="rms_residual" ID="col_rms_residual" ucd="askap:phot.flux.density.voxel;askap:stat.rms;src.net;em.radio" datatype="float" unit="mJy/beam" width="6" precision="3"/>
+      <FIELD name="stdev_residual" ID="col_stdev_residual" ucd="askap:phot.flux.density.voxel;stat.stdev;src.net;em.radio" datatype="float" unit="mJy/beam" width="6" precision="3"/>
       <FIELD name="x_min" ID="col_x_min" ucd="pos.cartesian.x;stat.min" datatype="int" unit="" width="5"/>
       <FIELD name="x_max" ID="col_x_max" ucd="pos.cartesian.x;stat.max" datatype="int" unit="" width="5"/>
       <FIELD name="y_min" ID="col_y_min" ucd="pos.cartesian.y;stat.min" datatype="int" unit="" width="5"/>
       <FIELD name="y_max" ID="col_y_max" ucd="pos.cartesian.y;stat.max" datatype="int" unit="" width="5"/>
       <FIELD name="n_pix" ID="col_n_pix" ucd="phys.angArea;instr.pixel;meta.number" datatype="int" unit="" width="9"/>
-      <FIELD name="solid_angle" ID="col_solid_angle" ucd="phys.angArea" datatype="int" unit="arcmin2" width="9"/>
-      <FIELD name="beam_area" ID="col_beam_area" ucd="phys.angArea;instr.beam" datatype="int" unit="arcmin2" width="9"/>
+      <FIELD name="solid_angle" ID="col_solid_angle" ucd="phys.angArea" datatype="float" unit="arcmin2" width="9" precision="2"/>
+      <FIELD name="beam_area" ID="col_beam_area" ucd="phys.angArea;instr.beam" datatype="float" unit="arcmin2" width="9" precision="2"/>
       <FIELD name="x_ave" ID="col_x_ave" ucd="pos.cartesian.x;stat.mean" datatype="float" unit="" width="7" precision="2"/>
       <FIELD name="y_ave" ID="col_y_ave" ucd="pos.cartesian.y;stat.mean" datatype="float" unit="" width="7" precision="2"/>
       <FIELD name="x_cen" ID="col_x_cen" ucd="pos.cartesian.x;askap:stat.centroid" datatype="float" unit="" width="7" precision="2"/>

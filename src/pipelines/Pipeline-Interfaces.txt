@@ -15,7 +15,7 @@ optional arguments:
   --lgfile LG_FILE     logical graph path
 
       - This will run Selavy on the image(s) provided in the IMG_LIST file.
-      
+      - This can be run with the test image in src/pipelines/Simple_Selavy_Test and the catalogue compared with the reference selavy-results.components.txt in that directory.
 
 Retrieving from NGAS:
       - Get an ASKAP image based on the file ID within NGAS, e.g.,

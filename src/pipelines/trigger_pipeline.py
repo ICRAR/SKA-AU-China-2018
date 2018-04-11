@@ -26,7 +26,7 @@ def parse_args():
 
 if __name__ == "__main__":
     args = parse_args()
-    conf_file = args.conf_file
+    conf_file = args.config_file
     if (not osp.exists(conf_file)):
         raise Exception('Not found %s' % conf_file)
 
@@ -35,7 +35,7 @@ if __name__ == "__main__":
 
     with open(args.lg_file, 'r') as fin:
         aa = json.load(fin)
-        aa['nodeDataArray'][2]['Arg01'] = conf_file
+        aa['nodeDataArray'][2]['Arg01'] = 'Arg01=%s' % conf_file
         aa['nodeDataArray'][3]['num_of_copies'] = nb_lines
 
     new_json = osp.basename(args.lg_file).replace('.json', '_%.3f.json' % (time.time()))

@@ -6,9 +6,9 @@ Input to overall pipeline:
       - e.g. runPipeline.sh FileID
       - In datamanagement - have kickoff_source_extractor.py that executes the wrapper script to kick off pipeline.
 
-Interface with NGAS:
-      - get an ASKAP image based on the file ID within NGAS
-      - wget 159.226.233.198:7777/RETRIEVE?file_id=observations-2338-image_cubes-image.i.SB2338.cont.restored.fits
+Retrieving from NGAS:
+      - Get an ASKAP image based on the file ID within NGAS, e.g.,
+      - ./ngas-get-askap-image.py -f observations-2338-image_cubes-image.i.SB2338.cont.restored.fits
 
 Sending to NGAS:
       - For sending the XML catalogue (e.g. called selavy-results.components.xml) to the archive

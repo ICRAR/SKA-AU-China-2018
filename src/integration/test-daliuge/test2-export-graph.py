@@ -10,7 +10,7 @@ from dlg.manager.client import DataIslandManagerClient
 
 from build_graph_common import AbstractBuildGraph
 
-NODE_ID = '192.168.0.101'
+NODE_ID = '192.168.0.102'
 LOGGER = logging.getLogger(__name__)
 
 

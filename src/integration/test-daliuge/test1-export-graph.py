@@ -16,7 +16,7 @@ LOGGER = logging.getLogger(__name__)
 
 class BuildGraph(AbstractBuildGraph):
     def __init__(self, **kwargs):
-        super(BuildGraph).__init__(**kwargs)
+        super(BuildGraph, self).__init__(**kwargs)
         self._host_id = kwargs['host']
 
     def build(self):

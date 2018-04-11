@@ -8,6 +8,15 @@ import os
 import argparse
 import subprocess
 import re
+import zlib
+import xml.etree.ElementTree as ET
+try:
+    # Python 2.7
+    from urllib2 import Request, urlopen, URLError, HTTPError
+except ImportError:
+    # Python 3.x
+    from urllib.request import Request, urlopen
+    from urllib.error import URLError, HTTPError
 
 
 # NGAS host and port
@@ -15,7 +24,7 @@ NGAS_HOST = "159.226.233.198"
 NGAS_PORT = 7777
 
 
-def get_image(fileid, outfile=None, host=NGAS_HOST, port=NGAS_PORT):
+def get_file(fileid, outfile=None, host=NGAS_HOST, port=NGAS_PORT):
     """
     Get a file from NGAS through:
         http://<host>:<port>/RETRIEVE?file_id=<file_id>
@@ -27,7 +36,7 @@ def get_image(fileid, outfile=None, host=NGAS_HOST, port=NGAS_PORT):
         "port": port,
         "file_id": fileid
     }
-    cmd = ["wget", "-O", outfile, url]
+    cmd = ["curl", "-o", outfile, url]
     print("Retrieve CMD: %s" % " ".join(cmd))
     try:
         subprocess.check_call(cmd)
@@ -38,6 +47,39 @@ def get_image(fileid, outfile=None, host=NGAS_HOST, port=NGAS_PORT):
             pass
         raise
     print("<<< Retrieved file as: %s" % outfile)
+
+
+def get_crc32(fileid, host=NGAS_HOST, port=NGAS_PORT):
+    """
+    Get the CRC32 checksum of the specified file from NGAS.
+    """
+    url = "http://%(host)s:%(port)d/STATUS?file_id=%(file_id)s" % {
+        "host": host,
+        "port": port,
+        "file_id": fileid
+    }
+    print("Retrieving file status: %s" % url)
+    req = Request(url)
+    try:
+        resp = urlopen(req)
+    except (URLError, HTTPError):
+        raise
+    content = resp.read()
+    root = ET.fromstring(content)
+    crc32 = root.find(".//FileStatus").attrib["Checksum"]
+    crc32 = int(crc32) & 0xFFFFFFFF
+    print("CRC32: %d" % crc32)
+    return crc32
+
+
+def calc_crc32(fn):
+    """
+    Calculate the CRC32 of the file.
+    """
+    prev = 0
+    for line in open(fn, "rb"):
+        prev = zlib.crc32(line, prev)
+    return (prev & 0xFFFFFFFF)
 
 
 def read_filelist(filelist):
@@ -56,7 +98,7 @@ def main():
         description="Get file(s) from NGAS")
     parser.add_argument("-H", "--host", default=NGAS_HOST,
                         help="NGAS server name/IP (default: %s)" % NGAS_HOST)
-    parser.add_argument("-p", "--port", type=int, default=NGAS_PORT,
+    parser.add_argument("-P", "--port", type=int, default=NGAS_PORT,
                         help="NGAS server port (default: %s)" % NGAS_PORT)
 
     grp = parser.add_mutually_exclusive_group(required=True)
@@ -91,9 +133,25 @@ def main():
         print(">>> Retrieving file: %s" % fid)
         if os.path.exists(fn):
             print("File already exists: %s" % fn)
-            print("*** skip ***")
-            continue
-        get_image(fid, outfile=fn, host=args.host, port=args.port)
+            print("Check existing file by CRC32 ...")
+            crc32_local = calc_crc32(fn)
+            crc32_remote = get_crc32(fid, host=args.host, port=args.port)
+            if crc32_local == crc32_remote:
+                print("Local existing file is identical with the remote one")
+                print("*** skip ***")
+                continue
+            else:
+                print("Local existing file is different from the remote one")
+                print("*** delete and retrieve ***")
+                os.remove(fn)
+
+        get_file(fid, outfile=fn, host=args.host, port=args.port)
+        crc32_local = calc_crc32(fn)
+        crc32_remote = get_crc32(fid, host=args.host, port=args.port)
+        if crc32_local == crc32_remote:
+            print("Retrieved file CRC32-check OK")
+        else:
+            raise ValueError("Retrieved file CRC32-check failed!")
 
     if args.path:
         open(args.path, "w").write("\n".join([

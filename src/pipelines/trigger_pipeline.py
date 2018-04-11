@@ -37,7 +37,7 @@ def parse_args():
                         default='8001', type=int)
 
     parser.add_argument('--parset', dest='parset_tpl', help='parset template file',
-                        default='/home/cwu/SKA-AU-China-2018/src/pipelines/Simple_Selavy_Test/selavy-singleSource.tpl',
+                        default='/home/ska_au_china_2018/SKA-AU-China-2018/src/pipelines/Simple_Selavy_Test/selavy-singleSource.tpl',
                         type=str)
     parser.add_argument('--lgfile', dest='lg_file', help='logical graph path',
                         default='/home/cwu/data/lg/selavy_test.json', type=str)

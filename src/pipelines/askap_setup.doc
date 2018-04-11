@@ -1,0 +1,74 @@
+#  ===========================================================================
+# This document provides information on how to use ASKAPsoft built on SHAO.
+# Relevant modules have been built on the SHAO to facilitate 
+# execution of ASKAPsoft application. You need to execute the 
+# following to make use of the tools in the modules: 
+#
+#  Yang Lu & wasim raja, 11Apr2018
+#============================================================================= 
+#  PART - A: Description of various components 
+#
+# 1. Modules to be loaded by Execution scripts (especially for slurm jobs):  
+module use /home/askap/Software/modulefiles
+module load askapsoft
+module load askapdata 
+
+# 2. Visualising images: 
+module load casa
+
+# 3. Example executing ASKAPsoft applications: 
+# (Run the above commands)
+executable name: selavy, cimager 
+example data set: /home/ska_au_china_2018/askap_imaging/singleSource_continuum.ms 
+
+Exercise 1: IMAGING
+
+1. Generation code: generator_cimager.sh  
+   Description: 
+       
+       i. generates the parset files for application
+       ii. generates the config file for resource allocation and command generation 
+
+   Location: 
+       /home/ska_au_china_2018/askap_imaging/
+   Type: 
+       bash script
+
+       * Currently the inputs are defined (by-hand)at the beginning of the script. But 
+         the aim would be to get these parameters from meta-data services. 
+       * The inputs are: 
+                 i. Name and Location of visibility data
+                 ii. Names for outputs (images and logs etc.) to ensure meaningful book-keeping 
+                 iii. Number of processes required 
+                 iv. Number of processes per node required. 
+                 v. Others... 
+   Outputs: 
+       * parset for cimager 
+       * configure file containing execution command
+       * Updates the execution script "run_cimager.sh" 
+
+2. Execute Application: run_cimager.sh 
+
+   Location: /home/ska_au_china_2018/askap_imaging/
+       Type: bash script
+   Description: 
+ 
+       * Executes ASKAPsoft application "cimager" 
+
+   Output: 
+       * Continuum images (location ?) 
+       * Log file (location ?)
+       
+#======================================================================================================      
+#============================================================================= 
+#  PART - B: Description of HOW TO run the code on the Execution Framework: 
+#
+#  * Location of dependencies: /home/ska_au_china_2018/askap_imaging/
+#  * Useful documents/files: 
+#        - Daliuge Graph schema: /home/ska_au_china_2018/askap_imaging/askap_imaging_graph.png 
+#        - The graph Json file: askap_2.json (202.127.29.97  -- cwu's area)
+#
+#  * Python script for execution of ASKAP imaging: In Progress
+#
+#
+# detailed documentation on ASKAPsoft applications: www.atnf.csiro.au/computing/software/askapsoft/sdp/docs/current/analysis/index.html 

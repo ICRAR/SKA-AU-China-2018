@@ -1,0 +1,9 @@
+Description: Test of ASKAPsoft imaging
+
+Data: Measurement set, single beam 12-hour observation, with a single
+point source at the centre
+
+Use: Should be used as input to the ASKAP imaging test, to produce an
+image with a single component at the centre.
+
+Parsets: ... to come ...

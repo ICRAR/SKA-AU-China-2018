@@ -1,17 +1,56 @@
 Interfaces from source-finding point-of-view
+--------------------------------------------
 
 Input to overall pipeline:
-      - trigger to start SF pipeline
-      - get FileID to for image to search
-      - e.g. runPipeline.sh FileID
       - In datamanagement - have kickoff_source_extractor.py that executes the wrapper script to kick off pipeline.
+      
+Initial test pipeline for Selavy on an image on disk:
+      - No NGAS interface as yet.
+      - In src/pipelines, have trigger script src/pipelines/trigger_pipeline.py:
+usage: trigger_pipeline.py [-h] [--imglist IMG_LIST] [--parset PARSET_TPL]
+                           [--lgfile LG_FILE]
 
-Interface with NGAS:
-      - get an ASKAP image based on the file ID within NGAS
-      - wget 159.226.233.198:7777/RETRIEVE?file_id=observations-2338-image_cubes-image.i.SB2338.cont.restored.fits
+Trigger a pipeline
+
+optional arguments:
+  -h, --help           show this help message and exit
+  --imglist IMG_LIST   each line is an image path
+  --parset PARSET_TPL  parset template file
+  --lgfile LG_FILE     logical graph path
+
+      - This will run Selavy on the image(s) provided in the IMG_LIST file.
+      - This can be run with the test image in src/pipelines/Simple_Selavy_Test and the catalogue compared with the reference selavy-results.components.txt in that directory.
+      
+      
+Selavy pipeline with NGAS download:
+    - Take above script and add the following:
+        - Input to script should be a FileID of a file on NGAS (or a list of FileIDs)
+        - Add an NGAS download drop based on src/pipelines/ngas-get-files.py
+        - Add an NGAS-upload drop to send the catalogue to NGAS at the end (new script needed)
+        
+ 
+ ASKAP imaging pipeline:
+     - Wasim to detail elsewhere?
+      
+---------------------
+
+Retrieving from NGAS:
+      - Get an ASKAP image based on the file ID within NGAS, e.g.,
+        $ ./ngas-get-files.py -f observations-2338-image_cubes-image.i.SB2338.cont.restored.fits
+      - Get a list of files from NGAS, e.g.,
+        $ cd tests
+        $ ../ngas-get-files.py -F testfiles.list -p paths.list
+      - See available parameters and help:
+        $ ./ngas-get-files.py -h
 
 Sending to NGAS:
-      - For sending the XML catalogue (e.g. called selavy-results.components.xml) to the archive
-      - wget --post-file=selavy-results.components.xml --header "Content-Type: application/VOTABLE" 159.226.233.198:7777/ARCHIVE?filename=selavy-results.components.xml
-      - check application type? 
-      - QUESTION - should we interact directly with NGAS here? Probably for this purpose is fine.
+      - Put one or more files onto NGAS, e.g.,
+        $ cd tests
+        $ ../ngas-put-files.py -f testfile.txt testfile2.txt
+        (A summary will be shown at the end)
+      - A text file containing the list of files to be put can also
+        be used, e.g.,
+        $ cd tests
+        $ ../ngas-put-files.py -F testfiles.list
+      - See available parameters and help:
+        $ ./ngas-put-files.py -h

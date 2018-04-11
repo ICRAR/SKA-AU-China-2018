@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<VOTABLE version="1.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns="http://www.ivoa.net/xml/VOTable/v1.3"
+ xmlns:stc="http://www.ivoa.net/xml/STC/v1.30" >
+  <COOSYS ID="J2000" equinox="J2000" system="eq_FK5"/>
+  <RESOURCE name="Island catalogue from Selavy source finding">
+    <TABLE name="Island catalogue">
+      <DESCRIPTION></DESCRIPTION>
+      <PARAM name="table_version" ucd="meta.version" datatype="char" arraysize="40" value="casda.continuum_island_description_v0.7"/>
+      <PARAM name="imageFile" ucd="meta.file;meta.fits" datatype="char" arraysize="17" value="singleSource.fits"/>
+      <PARAM name="flagSubsection" ucd="meta.code" datatype="boolean" value="1"/>
+      <PARAM name="subsection" ucd="" datatype="char" arraysize="21" value="[1:512,1:512,1:1,1:1]"/>
+      <PARAM name="flagStatSec" ucd="meta.code" datatype="boolean" value="0"/>
+      <PARAM name="StatSec" ucd="" datatype="char" arraysize="7" value="[*,*,*]"/>
+      <PARAM name="searchType" ucd="meta.note" datatype="char" arraysize="7" value="spatial"/>
+      <PARAM name="flagNegative" ucd="meta.code" datatype="boolean" value="0"/>
+      <PARAM name="flagBaseline" ucd="meta.code" datatype="boolean" value="0"/>
+      <PARAM name="flagRobustStats" ucd="meta.code" datatype="boolean" value="1"/>
+      <PARAM name="flagFDR" ucd="meta.code" datatype="boolean" value="0"/>
+      <PARAM name="threshold" ucd="phot.flux;stat.min" datatype="float" value="0.05"/>
+      <PARAM name="flagGrowth" ucd="meta.code" datatype="boolean" value="1"/>
+      <PARAM name="growthThreshold" ucd="phot.flux;stat.min" datatype="float" value="0.01"/>
+      <PARAM name="minPix" ucd="" datatype="int" value="2"/>
+      <PARAM name="minChannels" ucd="" datatype="int" value="0"/>
+      <PARAM name="minVoxels" ucd="" datatype="int" value="2"/>
+      <PARAM name="flagAdjacent" ucd="meta.code" datatype="boolean" value="1"/>
+      <PARAM name="threshVelocity" ucd="" datatype="float" value="7"/>
+      <PARAM name="flagRejectBeforeMerge" ucd="" datatype="boolean" value="0"/>
+      <PARAM name="flagTwoStageMerging" ucd="" datatype="boolean" value="1"/>
+      <PARAM name="pixelCentre" ucd="" datatype="char" arraysize="8" value="centroid"/>
+      <PARAM name="flagSmooth" ucd="meta.code" datatype="boolean" value="0"/>
+      <PARAM name="flagATrous" ucd="meta.code" datatype="boolean" value="0"/>
+      <PARAM name="thresholdActual" ucd="" datatype="float" unit="Jy/beam" value="0.05"/>
+      <FIELD name="island_id" ID="col_island_id" ucd="meta.id;meta.main" datatype="char" unit="--" arraysize="9"/>
+      <FIELD name="island_name" ID="col_island_name" ucd="meta.id" datatype="char" unit="" arraysize="15"/>
+      <FIELD name="n_components" ID="col_n_components" ucd="meta.number" datatype="int" unit="" width="5"/>
+      <FIELD name="ra_hms_cont" ID="col_ra_hms_cont" ucd="pos.eq.ra" ref="J2000" datatype="char" unit="" arraysize="11"/>
+      <FIELD name="dec_dms_cont" ID="col_dec_dms_cont" ucd="pos.eq.dec" ref="J2000" datatype="char" unit="" arraysize="10"/>
+      <FIELD name="ra_deg_cont" ID="col_ra_deg_cont" ucd="pos.eq.ra;meta.main" ref="J2000" datatype="double" unit="deg" width="11" precision="6"/>
+      <FIELD name="dec_deg_cont" ID="col_dec_deg_cont" ucd="pos.eq.dec;meta.main" ref="J2000" datatype="double" unit="deg" width="11" precision="6"/>
+      <FIELD name="freq" ID="col_freq" ucd="em.freq" datatype="float" unit="MHz" width="8" precision="1"/>
+      <FIELD name="maj_axis" ID="col_maj_axis" ucd="phys.angSize.smajAxis;em.radio" datatype="float" unit="arcsec" width="6" precision="2"/>
+      <FIELD name="min_axis" ID="col_min_axis" ucd="phys.angSize.sminAxis;em.radio" datatype="float" unit="arcsec" width="6" precision="2"/>
+      <FIELD name="pos_ang" ID="col_pos_ang" ucd="phys.angSize;pos.posAng;em.radio" datatype="float" unit="deg" width="7" precision="2"/>
+      <FIELD name="flux_int" ID="col_flux_int" ucd="phot.flux.density.integrated;em.radio" datatype="float" unit="mJy" width="7" precision="3"/>
+      <FIELD name="flux_int_err" ID="col_flux_int_err" ucd="stat.error;phot.flux.density.integrated;em.radio" datatype="float" unit="mJy" width="5" precision="3"/>
+      <FIELD name="flux_peak" ID="col_flux_peak" ucd="phot.flux.density;stat.max;em.radio" datatype="float" unit="mJy/beam" width="8" precision="3"/>
+      <FIELD name="mean_background" ID="col_mean_background" ucd="askap:phot.flux.density.voxel;instr.skyLevel;stat.mean;em.radio" datatype="float" unit="mJy/beam" width="5" precision="3"/>
+      <FIELD name="background_noise" ID="col_background_noise" ucd="askap:phot.flux.density.voxel;instr.skyLevel;askap:stat.rms;em.radio" datatype="float" unit="mJy/beam" width="5" precision="3"/>
+      <FIELD name="max_residual" ID="col_max_residual" ucd="askap:phot.flux.density.voxel;stat.max;src.net;em.radio" datatype="float" unit="mJy/beam" width="6" precision="3"/>
+      <FIELD name="min_residual" ID="col_min_residual" ucd="askap:phot.flux.density.voxel;stat.min;src.net;em.radio" datatype="float" unit="mJy/beam" width="8" precision="3"/>
+      <FIELD name="mean_residual" ID="col_mean_residual" ucd="askap:phot.flux.density.voxel;stat.mean;src.net;em.radio" datatype="float" unit="mJy/beam" width="6" precision="3"/>
+      <FIELD name="rms_residual" ID="col_rms_residual" ucd="askap:phot.flux.density.voxel;askap:stat.rms;src.net;em.radio" datatype="float" unit="mJy/beam" width="6" precision="3"/>
+      <FIELD name="stdev_residual" ID="col_stdev_residual" ucd="askap:phot.flux.density.voxel;stat.stdev;src.net;em.radio" datatype="float" unit="mJy/beam" width="6" precision="3"/>
+      <FIELD name="x_min" ID="col_x_min" ucd="pos.cartesian.x;stat.min" datatype="int" unit="" width="5"/>
+      <FIELD name="x_max" ID="col_x_max" ucd="pos.cartesian.x;stat.max" datatype="int" unit="" width="5"/>
+      <FIELD name="y_min" ID="col_y_min" ucd="pos.cartesian.y;stat.min" datatype="int" unit="" width="5"/>
+      <FIELD name="y_max" ID="col_y_max" ucd="pos.cartesian.y;stat.max" datatype="int" unit="" width="5"/>
+      <FIELD name="n_pix" ID="col_n_pix" ucd="phys.angArea;instr.pixel;meta.number" datatype="int" unit="" width="9"/>
+      <FIELD name="solid_angle" ID="col_solid_angle" ucd="phys.angArea" datatype="float" unit="arcmin2" width="9" precision="2"/>
+      <FIELD name="beam_area" ID="col_beam_area" ucd="phys.angArea;instr.beam" datatype="float" unit="arcmin2" width="9" precision="2"/>
+      <FIELD name="x_ave" ID="col_x_ave" ucd="pos.cartesian.x;stat.mean" datatype="float" unit="" width="7" precision="2"/>
+      <FIELD name="y_ave" ID="col_y_ave" ucd="pos.cartesian.y;stat.mean" datatype="float" unit="" width="7" precision="2"/>
+      <FIELD name="x_cen" ID="col_x_cen" ucd="pos.cartesian.x;askap:stat.centroid" datatype="float" unit="" width="7" precision="2"/>
+      <FIELD name="y_cen" ID="col_y_cen" ucd="pos.cartesian.y;askap:stat.centroid" datatype="float" unit="" width="7" precision="2"/>
+      <FIELD name="x_peak" ID="col_x_peak" ucd="pos.cartesian.x;phot.flux;stat.max" datatype="int" unit="" width="4"/>
+      <FIELD name="y_peak" ID="col_y_peak" ucd="pos.cartesian.y;phot.flux;stat.max" datatype="int" unit="" width="4"/>
+      <FIELD name="flag_i1" ID="col_flag_i1" ucd="meta.code" datatype="int" unit="" width="5"/>
+      <FIELD name="flag_i2" ID="col_flag_i2" ucd="meta.code" datatype="int" unit="" width="5"/>
+      <FIELD name="flag_i3" ID="col_flag_i3" ucd="meta.code" datatype="int" unit="" width="5"/>
+      <FIELD name="flag_i4" ID="col_flag_i4" ucd="meta.code" datatype="int" unit="" width="5"/>
+      <FIELD name="comment" ID="col_comment" ucd="meta.note" datatype="char" unit="" arraysize="100"/>
+      <DATA>
+        <TABLEDATA>
+        <TR>
+          <TD> island_1</TD><TD> J123000-450000</TD><TD>    1</TD><TD> 12:30:00.0</TD><TD> -45:00:00</TD><TD> 187.499931</TD><TD> -45.000065</TD><TD>  1412.0</TD><TD> 28.09</TD><TD> 26.39</TD><TD> 179.36</TD><TD> 23.781</TD><TD>0.000</TD><TD> 998.083</TD><TD>0.000</TD><TD>0.000</TD><TD> 3.958</TD><TD> -10.478</TD><TD>-0.811</TD><TD> 3.075</TD><TD> 2.966</TD><TD>  249</TD><TD>  263</TD><TD>  249</TD><TD>  263</TD><TD>      173</TD><TD>     1.20</TD><TD>     0.28</TD><TD> 256.16</TD><TD> 255.86</TD><TD> 256.04</TD><TD> 255.95</TD><TD> 256</TD><TD> 256</TD><TD>    0</TD><TD>    0</TD><TD>    0</TD><TD>    0</TD><TD>                                                                                                    </TD>
+        </TR>
+        </TABLEDATA>
+      </DATA>
+    </TABLE>
+  </RESOURCE>
+</VOTABLE>

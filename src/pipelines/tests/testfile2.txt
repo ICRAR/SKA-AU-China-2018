@@ -1,0 +1,2 @@
+This is the 2nd test file to test putting files onto NGAS by
+ngas-put-files.py

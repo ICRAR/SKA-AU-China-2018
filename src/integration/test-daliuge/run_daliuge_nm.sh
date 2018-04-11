@@ -2,4 +2,5 @@
 
 source /home/cwu/python27/bin/activate
 
-dlg nm --daemon -vvv -H ${1} --log-dir /tmp/daliuge
+export DLG_ROOT=/tmp/`hostname`
+dlg nm --daemon -vvv -H 0.0.0.0 --log-dir /tmp/daliuge

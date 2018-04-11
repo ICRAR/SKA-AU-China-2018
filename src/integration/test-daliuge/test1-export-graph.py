@@ -1,6 +1,7 @@
 """
 
 """
+import json
 import logging
 import argparse
 import getpass
@@ -35,14 +36,14 @@ class BuildGraph(AbstractBuildGraph):
 
 
 def build_and_deploy_graph(**kwargs):
-    build_graph = BuildGraph(**kwargs)
+    graph = BuildGraph(**kwargs)
 
     LOGGER.info('Connection to {0}:{1}'.format(kwargs['host'], kwargs['port']))
     client = DataIslandManagerClient(kwargs['host'], kwargs['port'], timeout=30)
 
-    client.create_session(build_graph.session_id)
-    client.append_graph(build_graph.session_id, build_graph.drop_list)
-    client.deploy_session(build_graph.session_id, get_roots(build_graph.drop_list))
+    client.create_session(graph.session_id)
+    client.append_graph(graph.session_id, json.dumps(graph.drop_list))
+    client.deploy_session(graph.session_id, get_roots(graph.drop_list))
 
 
 def main():

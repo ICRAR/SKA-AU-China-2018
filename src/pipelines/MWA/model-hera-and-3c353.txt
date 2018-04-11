@@ -1,0 +1,187 @@
+skymodel fileformat 1.1
+source {
+  name "HerA"
+  component {
+    type point
+    position -07h08m52.1s 04d59m16s
+    measurement {
+      frequency 80 MHz
+      fluxdensity Jy 399.768 0 0 0
+    }
+    measurement {
+      frequency 160 MHz
+      fluxdensity Jy 162.13 0 0 0
+    }
+  }
+  component {
+    type point
+    position -07h08m52.1s 04d59m34s
+    measurement {
+      frequency 80 MHz
+      fluxdensity Jy 223.39 0 0 0
+    }
+    measurement {
+      frequency 160 MHz
+      fluxdensity Jy 93.8198 0 0 0
+    }
+  }
+  component {
+    type point
+    position -07h08m53.3s 04d59m34s
+    measurement {
+      frequency 80 MHz
+      fluxdensity Jy 57.4625 0 0 0
+    }
+    measurement {
+      frequency 160 MHz
+      fluxdensity Jy 23.9386 0 0 0
+    }
+  }
+  component {
+    type point
+    position -07h08m56.9s 04d59m52s
+    measurement {
+      frequency 80 MHz
+      fluxdensity Jy 35.8203 0 0 0
+    }
+    measurement {
+      frequency 160 MHz
+      fluxdensity Jy 21.4415 0 0 0
+    }
+  }
+  component {
+    type point
+    position -07h08m47.3s 04d59m34s
+    measurement {
+      frequency 80 MHz
+      fluxdensity Jy 23.1573 0 0 0
+    }
+    measurement {
+      frequency 160 MHz
+      fluxdensity Jy 20.1303 0 0 0
+    }
+  }
+  component {
+    type point
+    position -07h08m55.7s 04d59m52s
+    measurement {
+      frequency 80 MHz
+      fluxdensity Jy 18.0736 0 0 0
+    }
+    measurement {
+      frequency 160 MHz
+      fluxdensity Jy 8.88048 0 0 0
+    }
+  }
+  component {
+    type point
+    position -07h08m58.1s 04d59m52s
+    measurement {
+      frequency 80 MHz
+      fluxdensity Jy 8.63639 0 0 0
+    }
+    measurement {
+      frequency 160 MHz
+      fluxdensity Jy 9.19234 0 0 0
+    }
+  }
+  component {
+    type point
+    position -07h08m54.5s 04d59m52s
+    measurement {
+      frequency 80 MHz
+      fluxdensity Jy 16.6472 0 0 0
+    }
+    measurement {
+      frequency 160 MHz
+      fluxdensity Jy 7.49934 0 0 0
+    }
+  }
+  component {
+    type point
+    position -07h08m49.7s 04d59m34s
+    measurement {
+      frequency 80 MHz
+      fluxdensity Jy 13.4702 0 0 0
+    }
+    measurement {
+      frequency 160 MHz
+      fluxdensity Jy 6.4551 0 0 0
+    }
+  }
+  component {
+    type point
+    position -07h08m47.3s 04d59m16s
+    measurement {
+      frequency 80 MHz
+      fluxdensity Jy 10.8041 0 0 0
+    }
+    measurement {
+      frequency 160 MHz
+      fluxdensity Jy 6.63965 0 0 0
+    }
+  }
+  component {
+    type point
+    position -07h08m48.5s 04d59m34s
+    measurement {
+      frequency 80 MHz
+      fluxdensity Jy 9.11223 0 0 0
+    }
+    measurement {
+      frequency 160 MHz
+      fluxdensity Jy 4.94895 0 0 0
+    }
+  }
+  component {
+    type point
+    position -07h08m48.5s 04d59m16s
+    measurement {
+      frequency 80 MHz
+      fluxdensity Jy 8.95192 0 0 0
+    }
+    measurement {
+      frequency 160 MHz
+      fluxdensity Jy 4.74573 0 0 0
+    }
+  }
+  component {
+    type point
+    position -07h08m50.9s 04d59m34s
+    measurement {
+      frequency 80 MHz
+      fluxdensity Jy 8.4103 0 0 0
+    }
+    measurement {
+      frequency 160 MHz
+      fluxdensity Jy 3.72354 0 0 0
+    }
+  }
+  component {
+    type point
+    position -07h08m56.9s 05d00m10s
+    measurement {
+      frequency 80 MHz
+      fluxdensity Jy 4.11012 0 0 0
+    }
+    measurement {
+      frequency 160 MHz
+      fluxdensity Jy 3.66221 0 0 0
+    }
+  }
+}
+source {
+  name "3C353"
+  component {
+    type point
+    position 17h20m28.1s -00d58m47s
+    measurement {
+      frequency 80 MHz
+      fluxdensity Jy 388 0 0 0
+    }
+    measurement {
+      frequency 160 MHz
+      fluxdensity Jy 276 0 0 0
+    }
+  }
+}

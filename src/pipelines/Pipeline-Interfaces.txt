@@ -1,14 +1,25 @@
 Interfaces from source-finding point-of-view
 
 Input to overall pipeline:
-      - trigger to start SF pipeline
-      - get FileID to for image to search
-      - e.g. runPipeline.sh FileID
       - In datamanagement - have kickoff_source_extractor.py that executes the wrapper script to kick off pipeline.
+      - In src/pipelines, have trigger script src/pipelines/trigger_pipeline.py:
+usage: trigger_pipeline.py [-h] [--imglist IMG_LIST] [--parset PARSET_TPL]
+                           [--lgfile LG_FILE]
+
+Trigger a pipeline
+
+optional arguments:
+  -h, --help           show this help message and exit
+  --imglist IMG_LIST   each line is an image path
+  --parset PARSET_TPL  parset template file
+  --lgfile LG_FILE     logical graph path
+
+      - This will run Selavy on the image(s) provided in the IMG_LIST file.
+      
 
 Retrieving from NGAS:
       - Get an ASKAP image based on the file ID within NGAS, e.g.,
-      - ./ngas-get-files.py -f observations-2338-image_cubes-image.i.SB2338.cont.restored.fits
+      - src/pipelines/ngas-get-files.py -f observations-2338-image_cubes-image.i.SB2338.cont.restored.fits
 
 Sending to NGAS:
       - For sending the XML catalogue (e.g. called selavy-results.components.xml) to the archive
@@ -16,7 +27,7 @@ Sending to NGAS:
       - Suggested content-type (from WP3) is "text/x-votable+xml"
         - However, trying the above wget command failed with the
           following error:
-        HTTP request sent, awaiting response... 400 Bad Request
-        2018-04-11 11:35:42 ERROR 400: Bad Request.
+HTTP request sent, awaiting response... 400 Bad Request
+2018-04-11 11:35:42 ERROR 400: Bad Request.
 
 

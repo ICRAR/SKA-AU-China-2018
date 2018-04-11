@@ -2,6 +2,7 @@ from __future__ import print_function, division, unicode_literals
 
 import argparse
 import os
+import re
 
 from astropy.io import votable
 from astropy.coordinates import SkyCoord
@@ -43,7 +44,7 @@ def get_access_addr(file_id, filename='sync.xml', file_write_mode='wb'):
 
     #casda.sync_tap_query(data_product_id_query, filename, username=username, password=password)
 
-def download_file(access_addr, destination_directory):
+def download_file(access_addr, destination_dir, write_mode='wb'):
     response = requests.get(access_addr, stream=True)
     if response.status_code != requests.codes.ok:
         if response.status_code == 404:
@@ -52,7 +53,9 @@ def download_file(access_addr, destination_directory):
         else:
             response.raise_for_status()
 
-    name = list(filter(bool, access_addr.split("/")))[-1]
+    print (access_addr)
+    #name = list(filter(bool, access_addr.split("/")))[-1]
+    name = access_addr.split("/")[-1]
     if 'Content-Disposition' in response.headers:
         header_cd = response.headers['Content-Disposition']
         if header_cd is not None and len(header_cd) > 0:

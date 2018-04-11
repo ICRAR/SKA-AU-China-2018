@@ -26,7 +26,11 @@ Selavy pipeline with NGAS download:
     - Take above script and add the following:
         - Input to script should be a FileID of a file on NGAS (or a list of FileIDs)
         - Add an NGAS download drop based on src/pipelines/ngas-get-files.py
-    - Also would like an NGAS-upload drop to send the catalogue to NGAS at the end - currently issues with this (see below).
+        - Add an NGAS-upload drop to send the catalogue to NGAS at the end (new script needed)
+        
+ 
+ ASKAP imaging pipeline:
+     - Wasim to detail elsewhere?
       
 ---------------------
 
@@ -36,13 +40,8 @@ Retrieving from NGAS:
 
 Sending to NGAS:
       - For sending the XML catalogue (e.g. called selavy-results.components.xml) to the archive:
-wget --post-file=selavy-results.components.xml --header "Content-Type: text/x-votable+xml" 159.226.233.198:7777/ARCHIVE?filename=selavy-results.components.xml
-      - Suggested content-type (from WP3) is "text/x-votable+xml"
-        - However, trying the above wget command failed with the
-          following error:
-HTTP request sent, awaiting response... 400 Bad Request
-2018-04-11 11:35:42 ERROR 400: Bad Request.
-      - Sending a FITS image should use a MIME type "image/x-fits" - ie.:
-wget --post-file=singleSource.fits --header "Content-Type: image/x-fits" 159.226.233.198:7777/ARCHIVE?filename=singleSource.fits
-      - We are still getting the "400 Bad Request" error for this as well though - Rodrigo looking at it (2pm 11/4)
+wget --post-file=selavy-results.components.xml --header "Content-Type: application/x-votable+xml" 159.226.233.198:7777/ARCHIVE?filename=selavy-results.components.xml
+      - Sending a FITS image should use a MIME type "image/fits" - ie.:
+wget --post-file=singleSource.fits --header "Content-Type: image/fits" 159.226.233.198:7777/ARCHIVE?filename=singleSource.fits
+      
       

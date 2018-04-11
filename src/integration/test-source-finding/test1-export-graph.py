@@ -28,12 +28,12 @@ class BuildGraph(AbstractBuildGraph):
         )
         bash_drop = self.create_bash_shell_app(
             node_id=NODE_ID,
-            command='source /home/ska_au_china_2018/python-test/bin/activate '
-                    '&& cd /home/ska_au_china_2018/SKA-AU-China-2018/src/pipeline'
-                    '&& python trigger_pipeline.py '
-                    '--imglist /home/ska_au_china_2018/SKA-AU-China-2018/src/pipelines/Simple_Selavy_Test/selavy-fits-list.txt '
-                    '--nodelist 192.168.0.101,192.168.0.102,192.168.0.103,192.168.0.104 '
-                    '--masterport 8002'
+            command='source /home/ska_au_china_2018/python-test/bin/activate'
+                    ' && cd /home/ska_au_china_2018/SKA-AU-China-2018/src/pipeline'
+                    ' && python trigger_pipeline.py '
+                    ' --imglist /home/ska_au_china_2018/SKA-AU-China-2018/src/pipelines/Simple_Selavy_Test/selavy-fits-list.txt '
+                    ' --nodelist 192.168.0.101,192.168.0.102,192.168.0.103,192.168.0.104 '
+                    ' --masterport 8002'
         )
         bash_drop.addInput(start_drop)
         bash_drop.addOutput(end_drop)

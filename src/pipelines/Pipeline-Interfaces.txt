@@ -36,7 +36,10 @@ Selavy pipeline with NGAS download:
 
 Retrieving from NGAS:
       - Get an ASKAP image based on the file ID within NGAS, e.g.,
-      - src/pipelines/ngas-get-files.py -f observations-2338-image_cubes-image.i.SB2338.cont.restored.fits
+        $ ./ngas-get-files.py -f observations-2338-image_cubes-image.i.SB2338.cont.restored.fits
+      - Get a list of files from NGAS, e.g.,
+        $ cd tests
+        $ ../ngas-get-files.py -F testfiles.list -p paths.list
 
 Sending to NGAS:
       - For sending the XML catalogue (e.g. called selavy-results.components.xml) to the archive:

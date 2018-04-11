@@ -8,7 +8,7 @@ Input to overall pipeline:
 
 Retrieving from NGAS:
       - Get an ASKAP image based on the file ID within NGAS, e.g.,
-      - ./ngas-get-askap-image.py -f observations-2338-image_cubes-image.i.SB2338.cont.restored.fits
+      - ./ngas-get-files.py -f observations-2338-image_cubes-image.i.SB2338.cont.restored.fits
 
 Sending to NGAS:
       - For sending the XML catalogue (e.g. called selavy-results.components.xml) to the archive

@@ -36,7 +36,7 @@ def get_file(fileid, outfile=None, host=NGAS_HOST, port=NGAS_PORT):
         "port": port,
         "file_id": fileid
     }
-    cmd = ["wget", "-O", outfile, url]
+    cmd = ["curl", "-o", outfile, url]
     print("Retrieve CMD: %s" % " ".join(cmd))
     try:
         subprocess.check_call(cmd)

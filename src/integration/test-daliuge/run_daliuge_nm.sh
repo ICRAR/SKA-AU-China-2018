@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /home/cwu/python27/bin/activate
+source /home/kvinsen/virtualenv/shanghai/bin/activate
 
 export DLG_ROOT=/tmp/daliuge/`hostname`
 mkdir -p ${DLG_ROOT}

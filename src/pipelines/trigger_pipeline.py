@@ -10,12 +10,12 @@ from string import Template
 
 """
 Example to trigger the pipeline:
-    python trigger_pipeline.py --configfile /home/cwu/data/config/single_config.txt
+    python trigger_pipeline.py --imglist
+        /home/ska_au_china_2018/SKA-AU-China-2018/src/pipelines/Simple_Selavy_Test/selavy-fits-list.txt
 
-The single_config.txt is an ASCII file with multiple lines with each line
+The selavy-fits-list.txt is an ASCII file of multiple lines with each line
 denoting the full path of an image file (e.g. the FITS image cube)
 """
-
 
 def parse_args():
     """
@@ -26,6 +26,16 @@ def parse_args():
     #                     default=None, type=str)
     parser.add_argument('--imglist', dest='img_list', help='each line is an image path',
                         default=None, type=str)
+
+    parser.add_argument('--nodelist', dest='node_list', help='a list of node IP addresses separated by commas',
+                        default='202.127.29.97', type=str)
+    parser.add_argument('--islandlist', dest='island_list', help='a list of island IP addresses separated by commas',
+                        default='202.127.29.97', type=str)
+    parser.add_argument('--masternode', dest='master_node', help='The master node IP where the graph is submitted to',
+                        default='202.127.29.97', type=str)
+    parser.add_argument('--masterport', dest='master_port', help='The master node port where the graph is submitted to',
+                        default='8001', type=int)
+
     parser.add_argument('--parset', dest='parset_tpl', help='parset template file',
                         default='/home/cwu/SKA-AU-China-2018/src/pipelines/Simple_Selavy_Test/selavy-singleSource.tpl',
                         type=str)
@@ -59,7 +69,7 @@ if __name__ == "__main__":
         img_list = imgin.readlines()
         for img_path in img_list:
             img_id = osp.basename(img_path.strip()).replace('.fits', '')
-	    os.mkdir('%s/%s' % (work_dir, img_id))
+            os.mkdir('%s/%s' % (work_dir, img_id))
             conf_str = tpl.safe_substitute({'FILE_PATH': img_path, 'RESULT_PATH': '%s/%s' % (work_dir, img_id)})
             conf_fpath = '%s/%s.in' % (work_dir, img_id)
             with open(conf_fpath, 'w') as confout:
@@ -74,7 +84,6 @@ if __name__ == "__main__":
 
     with open(args.lg_file, 'r') as fin:
         aa = json.load(fin)
-
         aa['nodeDataArray'][2]['Arg01'] = 'Arg01=%s' % conf_file
         aa['nodeDataArray'][3]['num_of_copies'] = nb_lines
 
@@ -82,7 +91,10 @@ if __name__ == "__main__":
     with open('/tmp/%s' % new_json, 'w') as fout:
         json.dump(aa, fout)
 
-    cmd = 'dlg unroll-and-partition -L /tmp/%s | dlg map -N 202.127.29.97,202.127.29.97 -i 1| dlg submit -H 202.127.29.97 -p 8001' % new_json
+    cmd = 'dlg unroll-and-partition -L /tmp/%s | dlg map -N %s,%s -i %d | dlg submit -H %s -p %d'\
+            % (new_json, args.island_list.replace(' ', ''), args.node_list.replace(' ', ''), \
+               len(args.island_list.split(',')), args.master_node, args.master_port, new_json)
+
     ret, msg = commands.getstatusoutput(cmd)
     if (0 != ret):
         print("Something is wrong: %s" % msg)

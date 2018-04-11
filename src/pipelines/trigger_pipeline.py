@@ -93,7 +93,7 @@ if __name__ == "__main__":
 
     cmd = 'dlg unroll-and-partition -L /tmp/%s | dlg map -N %s,%s -i %d | dlg submit -H %s -p %d'\
             % (new_json, args.island_list.replace(' ', ''), args.node_list.replace(' ', ''), \
-               len(args.island_list.split(',')), args.master_node, args.master_port, new_json)
+               len(args.island_list.split(',')), args.master_node, args.master_port)
 
     ret, msg = commands.getstatusoutput(cmd)
     if (0 != ret):

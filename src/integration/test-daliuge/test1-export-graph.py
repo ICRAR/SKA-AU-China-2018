@@ -42,7 +42,9 @@ def build_and_deploy_graph(**kwargs):
     client = DataIslandManagerClient(kwargs['host'], kwargs['port'], timeout=30)
 
     client.create_session(graph.session_id)
-    client.append_graph(graph.session_id, json.dumps(graph.drop_list))
+    json_dumps = json.dumps(graph.drop_list, indent=2)
+    LOGGER.info('json:\n{}'.format(json_dumps))
+    client.append_graph(graph.session_id, json_dumps)
     client.deploy_session(graph.session_id, get_roots(graph.drop_list))
 
 

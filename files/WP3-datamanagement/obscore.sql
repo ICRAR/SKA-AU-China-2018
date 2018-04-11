@@ -33,7 +33,7 @@ CREATE VIEW public.obscore (
 	em_res_power,
 	o_ucd,
 	pol_states,
-	facility_name,
+	-- facility_name,
 	instrument_name,
 	
 	dataproduct_subtype,
@@ -49,16 +49,16 @@ CREATE VIEW public.obscore (
 	quality_level) AS
 
 	-- Advertise catalogues via obs_core
-	select null, 2, 'shaoska', 'observation', dp.file_id, 
-	'#{baseUrl}/RETREIVE?fileid=' || dp.file_id, 'application/x-votable+xml', CAST(0 AS BIGINT), 
-	null, null, null, null, null, null::double precision, 
-	null, null, 0, null::double precision, 
-	null, null, null::double precision, 
-	'phot.flux.density', null, null, null,
+	select null::text, 2, 'shaoska'::text, 'observation'::text, dp.file_id, 
+	'#{baseUrl}/RETRIEVE?file_id=' || dp.file_id, 'application/x-votable+xml'::text, CAST(0 AS BIGINT), 
+	null::text, null::text, null::text, null::text, null::text, null::double precision, 
+	null::text, null::text, 0, null::double precision, 
+	null::text, null::text, null::double precision, 
+	'phot.flux.density'::text, null::text, null::text, null::text,
 --	'catalogue.'||lower(replace(c.catalogue_type,'_', '.')),
-	'catalogue',
-	'em.wl', 'm', null::double precision, null::double precision, null::double precision, 'pos.eq', 'deg', null::bigint, 
-	null, null
+	'catalogue'::text,
+	'em.wl'::text, 'm'::text, null::double precision, null::double precision, null::double precision, 'pos.eq'::text, 'deg'::text, null::bigint, 
+	null::text, null::text
 	from public.data_product dp
 	where dp.dataproduct_type = 'CATALOGUE' AND dp.deposit_state = 'DEPOSITED'
 	

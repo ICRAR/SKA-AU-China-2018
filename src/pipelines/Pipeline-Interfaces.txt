@@ -22,12 +22,14 @@ Retrieving from NGAS:
       - src/pipelines/ngas-get-files.py -f observations-2338-image_cubes-image.i.SB2338.cont.restored.fits
 
 Sending to NGAS:
-      - For sending the XML catalogue (e.g. called selavy-results.components.xml) to the archive
-      - wget --post-file=selavy-results.components.xml --header "Content-Type: text/x-votable+xml" 159.226.233.198:7777/ARCHIVE?filename=selavy-results.components.xml
+      - For sending the XML catalogue (e.g. called selavy-results.components.xml) to the archive:
+wget --post-file=selavy-results.components.xml --header "Content-Type: text/x-votable+xml" 159.226.233.198:7777/ARCHIVE?filename=selavy-results.components.xml
       - Suggested content-type (from WP3) is "text/x-votable+xml"
         - However, trying the above wget command failed with the
           following error:
 HTTP request sent, awaiting response... 400 Bad Request
 2018-04-11 11:35:42 ERROR 400: Bad Request.
-
-
+      - Sending a FITS image should use a MIME type "image/x-fits" - ie.:
+wget --post-file=singleSource.fits --header "Content-Type: image/x-fits" 159.226.233.198:7777/ARCHIVE?filename=singleSource.fits
+      - We are still getting the "400 Bad Request" error for this as well though - Rodrigo looking at it (2pm 11/4)
+      

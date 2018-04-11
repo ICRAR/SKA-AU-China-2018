@@ -1,0 +1,2 @@
+argparse
+git+https://github.com/ICRAR/daliuge.git

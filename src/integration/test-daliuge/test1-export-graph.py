@@ -37,6 +37,7 @@ class BuildGraph(AbstractBuildGraph):
 
 def build_and_deploy_graph(**kwargs):
     graph = BuildGraph(**kwargs)
+    graph.build()
 
     LOGGER.info('Connection to {0}:{1}'.format(kwargs['host'], kwargs['port']))
     client = DataIslandManagerClient(kwargs['host'], kwargs['port'], timeout=30)

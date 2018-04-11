@@ -44,9 +44,13 @@ Retrieving from NGAS:
         $ ./ngas-get-files.py -h
 
 Sending to NGAS:
-      - For sending the XML catalogue (e.g. called selavy-results.components.xml) to the archive:
-wget --post-file=selavy-results.components.xml --header "Content-Type: application/x-votable+xml" 159.226.233.198:7777/ARCHIVE?filename=selavy-results.components.xml
-      - Sending a FITS image should use a MIME type "image/fits" - ie.:
-wget --post-file=singleSource.fits --header "Content-Type: image/fits" 159.226.233.198:7777/ARCHIVE?filename=singleSource.fits
-      
-      
+      - Put one or more files onto NGAS, e.g.,
+        $ cd tests
+        $ ../ngas-put-files.py -f testfile.txt testfile2.txt
+        (A summary will be shown at the end)
+      - A text file containing the list of files to be put can also
+        be used, e.g.,
+        $ cd tests
+        $ ../ngas-put-files.py -F testfiles.list
+      - See available parameters and help:
+        $ ./ngas-put-files.py -h

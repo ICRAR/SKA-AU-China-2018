@@ -144,7 +144,14 @@ def main():
                 print("Local existing file is different from the remote one")
                 print("*** delete and retrieve ***")
                 os.remove(fn)
+
         get_file(fid, outfile=fn, host=args.host, port=args.port)
+        crc32_local = calc_crc32(fn)
+        crc32_remote = get_crc32(fid, host=args.host, port=args.port)
+        if crc32_local == crc32_remote:
+            print("Retrieved file CRC32-check OK")
+        else:
+            raise ValueError("Retrieved file CRC32-check failed!")
 
     if args.path:
         open(args.path, "w").write("\n".join([

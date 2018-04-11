@@ -215,3 +215,4 @@ venv.bak/
 .mypy_cache/
 
 /SKA-AU-China-2018.iml
+/.idea/

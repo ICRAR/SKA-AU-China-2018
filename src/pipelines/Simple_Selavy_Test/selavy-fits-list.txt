@@ -1,0 +1,1 @@
+/home/cwu/SKA-AU-China-2018/src/pipelines/Simple_Selavy_Test/singleSource.fits

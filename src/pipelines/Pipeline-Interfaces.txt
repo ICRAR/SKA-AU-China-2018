@@ -40,6 +40,8 @@ Retrieving from NGAS:
       - Get a list of files from NGAS, e.g.,
         $ cd tests
         $ ../ngas-get-files.py -F testfiles.list -p paths.list
+      - See available parameters and help:
+        $ ./ngas-get-files.py -h
 
 Sending to NGAS:
       - For sending the XML catalogue (e.g. called selavy-results.components.xml) to the archive:

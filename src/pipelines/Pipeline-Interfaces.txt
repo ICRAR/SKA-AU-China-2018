@@ -1,7 +1,11 @@
 Interfaces from source-finding point-of-view
+--------------------------------------------
 
 Input to overall pipeline:
       - In datamanagement - have kickoff_source_extractor.py that executes the wrapper script to kick off pipeline.
+      
+Initial test pipeline for Selavy on an image on disk:
+      - No NGAS interface as yet.
       - In src/pipelines, have trigger script src/pipelines/trigger_pipeline.py:
 usage: trigger_pipeline.py [-h] [--imglist IMG_LIST] [--parset PARSET_TPL]
                            [--lgfile LG_FILE]
@@ -16,6 +20,15 @@ optional arguments:
 
       - This will run Selavy on the image(s) provided in the IMG_LIST file.
       - This can be run with the test image in src/pipelines/Simple_Selavy_Test and the catalogue compared with the reference selavy-results.components.txt in that directory.
+      
+      
+Selavy pipeline with NGAS download:
+    - Take above script and add the following:
+        - Input to script should be a FileID of a file on NGAS (or a list of FileIDs)
+        - Add an NGAS download drop based on src/pipelines/ngas-get-files.py
+    - Also would like an NGAS-upload drop to send the catalogue to NGAS at the end - currently issues with this (see below).
+      
+---------------------
 
 Retrieving from NGAS:
       - Get an ASKAP image based on the file ID within NGAS, e.g.,

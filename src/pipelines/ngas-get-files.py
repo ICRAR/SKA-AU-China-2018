@@ -136,6 +136,7 @@ def main():
             print("File already exists: %s" % fn)
             print("Check existing file by CRC32 ...")
             crc32_local = calc_crc32(fn)
+            print("Try to get CRC32 for the file from remote ...")
             crc32_remote = get_crc32(fid, host=args.host, port=args.port)
             if crc32_local == crc32_remote:
                 print("Local existing file is identical with the remote one")
@@ -147,8 +148,10 @@ def main():
                 os.remove(fn)
 
         get_file(fid, outfile=fn, host=args.host, port=args.port)
+        print("Calculating CRC32 for the local file ...")
         crc32_local = calc_crc32(fn)
         crc32_remote = get_crc32(fid, host=args.host, port=args.port)
+        print("Checking the CRC32 between the local and remote files ...")
         if crc32_local == crc32_remote:
             print("Retrieved file CRC32-check OK")
         else:

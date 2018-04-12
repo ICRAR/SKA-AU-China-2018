@@ -41,9 +41,6 @@ def parse_args():
 
 
     args = parser.parse_args()
-    if (args.img_list is None):
-        parser.print_help()
-        sys.exit(1)
 
     return args
 

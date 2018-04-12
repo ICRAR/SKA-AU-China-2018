@@ -5,16 +5,16 @@
 #++++++++++++++++++++++++++++++++++++++
 # Define the parset/config/log files: 
 #++++++++++++++++++++++++++++++++++++++
-app_name=cimager
+app_name='cimager'
 date_tag=`date +%Y-%m-%d-%H%M%S`
-workdir=/tmp/${app_name}_${date_tag}
+workdir=/tmp/${app_name} #_${date_tag}
 mkdir -p ${workdir}
 parset_name=${workdir}/cimager.in
 cimager_config_name=${workdir}/cimager.config
 log=${workdir}/cimager.log
 indata=/home/ska_au_china_2018/SKA-AU-China-2018/src/pipelines/askap_imaging/singleSource_Continuum.ms
 #indata=/home/cwu/askap_imaging/singleSource_Continuum.ms
-outImageName="${workdir}/image.askap.test" 
+outImageName="image.askap.test" 
 #nchan=useful to decide resource needed; currently we are using fixed number of cores.
 nppn=1
 nnodes=1
@@ -119,6 +119,7 @@ echo "
 module use /home/askap/Software/modulefiles
 module load askapsoft
 module load askapdata
+cd ${workdir}
 " >${cimager_config_name}
 echo "srun --export=ALL --ntasks=${nnodes} --ntasks-per-node=${nppn} cimager -p -c ${parset_name} > ${log}" >>${cimager_config_name}
 #++++++++++++++++++++++++++++++++++++++

@@ -23,10 +23,9 @@ class WaitForFile(BarrierAppDROP):
         self._starts_with = self._getArg(kwargs, 'starts_with', None)
 
         work_dirs = []
-        for file in listdir(self._root_directory):
+        for file in sorted(listdir(self._root_directory)):
             if file.startswith('dlg_work_dir_'):
                 work_dirs.append(file)
-        work_dirs = sorted(work_dirs)
         self._directory_to_check = work_dirs[-1]
         LOGGER.info('Looking in {}'.format(self._directory_to_check))
 

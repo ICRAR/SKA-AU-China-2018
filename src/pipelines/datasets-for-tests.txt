@@ -1,0 +1,21 @@
+Datasets for use with pipeline tests
+------------------------------------
+
+Description: This file lists the NGAS file IDs for datasets needed to run the various pipeline tests
+
+Simple Selavy test : 
+ - singleSource.fits  (simulated image with a single component at the centre)
+ 
+ASKAP Selavy test :
+ - observations-2338-image_cubes-image.i.SB1934.cont.restored.fits
+ - observations-1934-image_cubes-image.i.SB1934.cont.restored.fits (as an alternative)
+
+ASKAP imaging test :
+(These files are measurement sets, and will need to be un-tarred prior to use)
+ - singleSource_Continuum.ms.tar (simulated single-source image observation)
+    - inflates to singleSource_Continuum.ms
+ - observations-2338-measurement_sets-44.tar  (ASKAP observation - single beam continuum measurement set)
+    - inflates to scienceData_SB2338_NGC7232_A_T0-0A.beam00_averaged_cal.ms
+ 
+MWA flagging test:
+ - Nothing there so far - will perhaps add something manually from disk

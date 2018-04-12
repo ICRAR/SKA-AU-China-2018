@@ -32,7 +32,7 @@ if __file__ == '__main__':
     #                     default=None, type=str)
     parser.add_argument('--config_file', dest='config_file', help='path of config file',
                         default=None, type=str) 
-	parser.add_argument('--tar_file', dest='tar_file', help='path of tar file',
+    parser.add_argument('--tar_file', dest='tar_file', help='path of tar file',
                         default=None, type=str) 
     args = parser.parse_args()
     resultDir = parseResultDir(args.config_file)

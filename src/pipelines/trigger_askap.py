@@ -36,13 +36,13 @@ def parse_args():
 
     parser.add_argument('--lgfile', dest='lg_file', help='logical graph path',
                         default='%s/src/pipelines/lg/askap_2.json' % REPO_HOME, type=str)
+
     parser.add_argument('--inpath', dest='inpath', help='path to generator script',
                         default='%s/src/pipelines/askap_imaging/' % REPO_HOME, type=str)
 
 
     args = parser.parse_args()
-
-    return args
+    return args 
 
 if __name__ == "__main__":
     args = parse_args()

@@ -41,15 +41,6 @@ class BuildGraph(AbstractBuildGraph):
         bash_drop.addInput(memory_drop_01)
         bash_drop.addOutput(memory_drop_02)
 
-        wait_for_file = self.create_app(
-            NODE_ID,
-            self.get_module_name(WaitForFile),
-            'app_wait_for_file',
-            root_directory='/tmp',
-            starts_with='total.'
-        )
-        wait_for_file.addInput(memory_drop_02)
-        wait_for_file.addOutput(memory_drop_03)
 
 
 def build_and_deploy_graph(**kwargs):

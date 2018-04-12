@@ -20,7 +20,6 @@ if im1.shape == im2.shape:
         print("FAIL")
     else:
         print("PASS")
-    
+
 else:
     print("FAIL")
-    

@@ -8,8 +8,8 @@ import logging
 from dlg.droputils import get_roots
 from dlg.manager.client import DataIslandManagerClient
 
-from build_graph_common import AbstractBuildGraph
-from wait_for_file_drop import WaitForFile
+from integration_common.build_graph_common import AbstractBuildGraph
+from integration_common.wait_for_file_drop import WaitForFile
 
 NODE_ID = '192.168.0.101'
 LOGGER = logging.getLogger(__name__)

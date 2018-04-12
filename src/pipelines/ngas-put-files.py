@@ -123,6 +123,7 @@ def main():
 
     status = {}
     for fp in files:
+        fn = os.path.basename(fp)
         print(">>> Putting file: %s" % fp)
         if not os.path.exists(fp):
             status[fp] = "not exists"
@@ -130,8 +131,10 @@ def main():
             print("*** skip ***")
             continue
 
+        print("Calculating CRC32 for the local file ...")
         crc32_local = calc_crc32(fp)
-        crc32_remote = get_crc32(fp, host=args.host, port=args.port)
+        print("Try to get CRC32 for the file from remote ...")
+        crc32_remote = get_crc32(fn, host=args.host, port=args.port)
         if crc32_local == crc32_remote:
             status[fp] = "skipped (already in NGAS)"
             print("Identical file already exists in NGAS")
@@ -139,7 +142,8 @@ def main():
             continue
 
         put_file(fp, host=args.host, port=args.port)
-        crc32_remote = get_crc32(fp, host=args.host, port=args.port)
+        print("Checking the CRC32 between the local and remote files ...")
+        crc32_remote = get_crc32(fn, host=args.host, port=args.port)
         if crc32_local == crc32_remote:
             status[fp] = "ok"
             print("Put file CRC32-check OK")

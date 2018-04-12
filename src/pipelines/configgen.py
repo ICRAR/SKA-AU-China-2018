@@ -1,4 +1,4 @@
-
+import time
 import os
 import os.path as osp
 
@@ -19,8 +19,9 @@ def convert(img_path):
     """
     """
     img_id = osp.basename(img_path.strip()).replace('.fits', '')
-    os.mkdir('%s/%s' % (work_dir, img_id))
-    conf_str = tpl.safe_substitute({'FILE_PATH': img_path, 'RESULT_PATH': '%s/%s' % (work_dir, img_id)})
+    result_path = '%s/%s/%.5f' % (work_dir, img_id, time.time())
+    os.mkdir(result_path)
+    conf_str = tpl.safe_substitute({'FILE_PATH': img_path, 'RESULT_PATH': result_path})
     conf_fpath = '%s/%.3f-%s.in' % (work_dir, time.time(), img_id)
     with open(conf_fpath, 'w') as confout:
         confout.write(conf_str)

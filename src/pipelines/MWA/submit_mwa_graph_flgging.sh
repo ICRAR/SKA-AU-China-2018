@@ -7,13 +7,12 @@ function print_usage {
 	echo "-d <data_dir>:    Provide the directory where all the data resides (or will reside)"
 	echo "-o <obs_name>: Provide the observation name"
 }
-
 #config daliuge enviroment
 source /home/blao/MWA/bashrc
 
-
 # Where are we?
-this_dir=`dirname $0`
+this_dir=`pwd`
+#home_dir=`pwd`
 
 # The logical graph we want to submit
 lg_dir="$this_dir"/../lg
@@ -23,9 +22,11 @@ lg_file="$lg_dir"/mwa_flagging.json
 OBS_NAME=1089045008
 DATA_DIR=/home/data1/mwa_download
 NCPUS=68
-HOST=202.127.29.97
+HOST=localhost
 PORT=8001
+PYTHON=`which python`
 
+cd ${DATA_DIR}/${OBS_NAME}
 
 if [[ -e ${OBS_NAME}_flags.zip ]]
 then
@@ -54,10 +55,11 @@ done
 
 now="$(date -u +%F_%T)"
 
+#cd ${home_dir}
 
 # Replace the placeholder variables (i.e., transition from a Logical Graph
 # Template into a Logical Graph).
 # Then translate into a physical graph template, partition, etc, and finally submit
-sed "s|\${DATA_DIR}|${DATA_DIR}|g; s|\${OBS_NAME}|${OBS_NAME}|g; s|\${NCPUS}|${NCPUS}|g; s|\${FLAGFILES}|${FLAGFILES}|g" "$lg_file" \
-        | dlg unroll-and-partition -L ${lg_file} | dlg map -N "${HOST},${HOST}" -i 1 | dlg submit -H ${HOST} -p ${PORT}
+cat ${lg_file} | sed "s;DATA_DIR;${DATA_DIR};g" | sed "s;OBS_NAME;${OBS_NAME};g" | sed "s;PYTHON;${PYTHON};g"| sed "s;FLAGFILES;${FLAGFILES};g" | sed "s;NCPUS;${NCPUS};g" > "${home_dir}/${lg_dir}/mwa_flagging_${OBS_NAME}.json" \
+	| dlg unroll-and-partition -L ${home_dir}/${lg_dir}/mwa_flagging_${OBS_NAME}.json | dlg map -N "${HOST},${HOST}" -i 1 | dlg submit -H ${HOST} -p ${PORT} -s "mwa_${OBS_NAME}_${now}"
 

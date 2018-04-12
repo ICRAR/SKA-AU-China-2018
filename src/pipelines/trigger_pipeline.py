@@ -72,6 +72,7 @@ if __name__ == "__main__":
     with open(imgfiles, 'r') as imgin:
         img_list = imgin.readlines()
         for img_path in img_list:
+	    print(img_path)
             img_id = osp.basename(img_path.strip()).replace('.fits', '')
             os.mkdir('%s/%s' % (work_dir, img_id))
             conf_str = tpl.safe_substitute({'FILE_PATH': img_path, 'RESULT_PATH': '%s/%s' % (work_dir, img_id)})
@@ -81,6 +82,7 @@ if __name__ == "__main__":
             conf_in_list.append(conf_fpath)
 
     conf_file = '%s/total.conf' % (work_dir)
+    print(conf_file)
     with open(conf_file, 'w') as confout:
         confout.write(os.linesep.join(conf_in_list))
 

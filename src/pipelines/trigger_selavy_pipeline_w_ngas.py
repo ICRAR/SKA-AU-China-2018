@@ -38,14 +38,11 @@ def parse_args():
     parser.add_argument('--masterport', dest='master_port', help='The master node port where the graph is submitted to',
                         default='8001', type=int)
 
-    parser.add_argument('--parset', dest='parset_tpl', help='parset template file',
-                        default='%s/src/pipelines/Simple_Selavy_Test/selavy-singleSource.tpl' % REPO_HOME,
-                        type=str)
     parser.add_argument('--lgfile', dest='lg_file', help='logical graph path',
                         default='%s/src/pipelines/lg/selavy_ngas_test.json' % REPO_HOME, type=str)
 
     args = parser.parse_args()
-    if (args.img_list is None):
+    if (args.file_id_list is None):
         parser.print_help()
         sys.exit(1)
 
@@ -57,37 +54,20 @@ if __name__ == "__main__":
     if (not osp.exists(fileids_files)):
         raise Exception('Not found %s' % fileids_files)
 
-    # generate a working directory
-    work_dir = '/tmp/dlg_work_dir_%.3f' % time.time()
-    os.mkdir(work_dir)
-
-    # for each image, generate its ParsetFile
-    with open(args.parset_tpl, 'r') as pin:
-        tpl_str = pin.read()
-        tpl = Template(tpl_str)
-
-    conf_in_list = []
     with open(fileids_files, 'r') as imgin:
         img_list = imgin.readlines()
-        for img_path in img_list:
-            img_id = osp.basename(img_path.strip()).replace('.fits', '')
-            os.mkdir('%s/%s' % (work_dir, img_id))
-            conf_str = tpl.safe_substitute({'FILE_PATH': img_path, 'RESULT_PATH': '%s/%s' % (work_dir, img_id)})
-            conf_fpath = '%s/%s.in' % (work_dir, img_id)
-            with open(conf_fpath, 'w') as confout:
-                confout.write(conf_str)
-            conf_in_list.append(conf_fpath)
-
-    conf_file = '%s/total.conf' % (work_dir)
-    with open(conf_file, 'w') as confout:
-        confout.write(os.linesep.join(conf_in_list))
-
-    nb_lines = len(conf_in_list)
+        nb_lines = len(img_list)
 
     with open(args.lg_file, 'r') as fin:
         aa = json.load(fin)
-        aa['nodeDataArray'][2]['Arg01'] = 'Arg01=%s' % conf_file
-        aa['nodeDataArray'][3]['num_of_copies'] = nb_lines
+        nodes = aa['nodeDataArray']
+
+        for node in nodes:
+            nk = node['key']
+            if (-8 == nk):
+                node['Arg02'] = '-F %s' % fileids_files
+            elif (-12 == nk):
+                node['num_of_copies'] = nb_lines
 
     new_json = osp.basename(args.lg_file).replace('.json', '_%.3f.json' % (time.time()))
     with open('/tmp/%s' % new_json, 'w') as fout:

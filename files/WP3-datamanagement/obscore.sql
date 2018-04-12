@@ -60,8 +60,40 @@ CREATE VIEW public.obscore (
 	'em.wl'::text, 'm'::text, null::double precision, null::double precision, null::double precision, 'pos.eq'::text, 'deg'::text, null::bigint, 
 	null::text, null::text
 	from public.data_product dp
-	where dp.dataproduct_type = 'CATALOGUE' AND dp.deposit_state = 'DEPOSITED'
+	where dp.dataproduct_type IN ('CATALOGUE', 'catalogue') AND dp.deposit_state = 'DEPOSITED'
+
+	UNION
 	
+	
+	-- Advertise cubes via obs_core
+	select dp.dataproduct_type, 2, 'shaoska'::text, 'observation'::text, dp.file_id, 
+	'#{baseUrl}/RETRIEVE?file_id=' || dp.file_id, 'image/fits'::text, CAST(0 AS BIGINT), 
+	null::text, null::text, null::text, null::text, null::text, null::double precision, 
+	null::text, null::text, 0, null::double precision, 
+	null::text, null::text, null::double precision, 
+	'phot.flux.density'::text, null::text, null::text, null::text,
+	null,
+	'em.wl'::text, 'm'::text, null::double precision, null::double precision, null::double precision, 'pos.eq'::text, 'deg'::text, null::bigint, 
+	null::text, null::text
+	from public.data_product dp
+	where dp.dataproduct_type = 'cube' AND dp.deposit_state = 'DEPOSITED'
+
+	UNION
+	
+	
+	-- Advertise measurement sets/visibilities via obs_core
+	select dp.dataproduct_type, 1, 'shaoska'::text, 'observation'::text, dp.file_id, 
+	'#{baseUrl}/RETRIEVE?file_id=' || dp.file_id, 'application/x-tar'::text, CAST(0 AS BIGINT), 
+	null::text, null::text, null::text, null::text, null::text, null::double precision, 
+	null::text, null::text, 0, null::double precision, 
+	null::text, null::text, null::double precision, 
+	'phys.polarisation'::text, null::text, null::text, null::text,
+	null,
+	'em.wl'::text, 'm'::text, null::double precision, null::double precision, null::double precision, 'pos.eq'::text, 'deg'::text, null::bigint, 
+	null::text, null::text
+	from public.data_product dp
+	where dp.dataproduct_type = 'visibility' AND dp.deposit_state = 'DEPOSITED'
+
     ORDER BY 4, 5;
   
 COMMENT ON VIEW public.obscore is 'An implementation of the Observation Data Model Core Components \

@@ -5,3 +5,4 @@ Deliverable - MWA and ASKAP datasets are being transferred from Pawsey to SHAO i
 
 ## Useful links
 NGAS documentation: https://ngas.readthedocs.io/en/latest/index.html
+IVOA obscore specification: http://www.ivoa.net/documents/ObsCore/20170509/REC-ObsCore-v1.1-20170509.pdf

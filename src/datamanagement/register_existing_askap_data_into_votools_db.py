@@ -30,13 +30,14 @@ import psycopg2
 logger = logging.getLogger(__name__)
 
 cubes_re = re.compile(r'observations-.*-image_cubes.*.fits')
-visibilities_re = re.compile(r'observations-.*-measurement_sets-.*.tar.x-tar')
+visibilities_re = re.compile(r'observations-.*-measurement_sets-.*.tar')
 
 def register_dataproduct(dsn, fid, dptype):
     with contextlib.closing(psycopg2.connect(dsn)) as db:
         with contextlib.closing(db.cursor()) as cursor:
             cursor.execute("INSERT INTO data_product(file_id, dataproduct_type, deposit_state) VALUES (%s, %s, 'DEPOSITED')", (fid, dptype))
             cursor.execute('COMMIT')
+            logger.info('Registered %s as a %s', fid, dptype)
 
 def register_file(dsn, fname):
 
@@ -50,5 +51,7 @@ def register_file(dsn, fname):
 if __name__ == '__main__':
     import sys
 
+    logging.basicConfig(level=logging.INFO)
     dsn = sys.argv[1]
-    register_file(dsn, sys.argv[2])
+    for fid in sys.argv[2:]:
+        register_file(dsn, fid)

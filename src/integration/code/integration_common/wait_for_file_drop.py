@@ -2,6 +2,8 @@
 Wait for a file to appear from
 """
 import logging
+from os.path import join
+
 from os import listdir
 from time import sleep
 
@@ -24,9 +26,7 @@ class WaitForFile(BarrierAppDROP):
 
     def run(self):
         for filename in listdir(self._root_directory):
-            LOGGER.info('Looking at {}'.format(filename))
             if filename.startswith('dlg_work_dir_'):
-                LOGGER.info('Found {}'.format(filename))
                 if self._directory_to_check is None:
                     self._directory_to_check = filename
                 elif filename > self._directory_to_check:
@@ -36,7 +36,7 @@ class WaitForFile(BarrierAppDROP):
         found = False
         while not found:
             sleep(5)
-            for file in listdir(self._directory_to_check):
+            for file in listdir(join(self._root_directory, self._directory_to_check)):
                 if file.startswith(self._starts_with):
                     found = True
                     break

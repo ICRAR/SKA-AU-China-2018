@@ -15,6 +15,7 @@ outImageName="image.I.1934-638_bm-0_iter-0"
 nppn=1
 nnodes=1
 #++++++++++++++++++++++++++++++++++++++
+echo "Writing: `pwd`"
 
 # 0. Pull data from NGAS:  
 echo "command to pull data ${indata} from NGAS" >pull_from_NGAS.sh

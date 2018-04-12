@@ -21,8 +21,9 @@ def zipResult(result_dir):
 	filelist = os.listdir(result_dir)
 	zf = zipfile.ZipFile(zipFileName, "w", zipfile.zlib.DEFLATED)
 
-
+	print("zipping now")
 	for file in filelist:
+		print("adding %s" % file)
 		zf.write(os.path.join(result_dir, file))
 
 	zf.close()
@@ -40,8 +41,8 @@ if __name__ == '__main__':
     args = parser.parse_args()
     resultDir = parseResultDir(args.config_file)
     zip_path = zipResult(resultDir)
-
-    with open(args.tar_file) as fout:
+    print(zip_path)
+    with open(args.tar_file, 'w') as fout:
     	fout.write(zip_path)
 
 

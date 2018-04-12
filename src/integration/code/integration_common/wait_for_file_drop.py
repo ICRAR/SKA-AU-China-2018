@@ -27,7 +27,9 @@ class WaitForFile(BarrierAppDROP):
             LOGGER.info('Looking at {}'.format(filename))
             if filename.startswith('dlg_work_dir_'):
                 LOGGER.info('Found {}'.format(filename))
-                if filename > self._directory_to_check:
+                if self._directory_to_check is None:
+                    self._directory_to_check = filename
+                elif filename > self._directory_to_check:
                     self._directory_to_check = filename
 
         LOGGER.info('Looking in {}'.format(self._directory_to_check))

@@ -8,8 +8,10 @@ import commands
 import argparse
 from string import Template
 
+REPO_HOME = '/home/ska_au_china_2018/SKA-AU-China-2018'
+
 """
-Example to trigger the pipeline:
+Example to trigger the Selavy pipeline:
     python trigger_pipeline.py --imglist
         /home/ska_au_china_2018/SKA-AU-China-2018/src/pipelines/Simple_Selavy_Test/selavy-fits-list.txt
 
@@ -37,10 +39,12 @@ def parse_args():
                         default='8001', type=int)
 
     parser.add_argument('--parset', dest='parset_tpl', help='parset template file',
-                        default='/home/ska_au_china_2018/SKA-AU-China-2018/src/pipelines/Simple_Selavy_Test/selavy-singleSource.tpl',
+                        default='%s/src/pipelines/Simple_Selavy_Test/selavy-singleSource.tpl' % REPO_HOME,
                         type=str)
+
     parser.add_argument('--lgfile', dest='lg_file', help='logical graph path',
-                        default='/home/cwu/data/lg/selavy_test.json', type=str)
+                        default='%s/src/pipelines/lg/selavy_test.json' % REPO_HOME, type=str)
+
 
     args = parser.parse_args()
     if (args.img_list is None):
@@ -84,8 +88,14 @@ if __name__ == "__main__":
 
     with open(args.lg_file, 'r') as fin:
         aa = json.load(fin)
-        aa['nodeDataArray'][2]['Arg01'] = 'Arg01=%s' % conf_file
-        aa['nodeDataArray'][3]['num_of_copies'] = nb_lines
+        nodes = aa['nodeDataArray']
+
+        for node in nodes:
+            nk = node['key']
+            if (-8 == nk):
+                node['filepath'] = conf_file
+            elif (-12 == nk):
+                node['num_of_copies'] = nb_lines
 
     new_json = osp.basename(args.lg_file).replace('.json', '_%.3f.json' % (time.time()))
     with open('/tmp/%s' % new_json, 'w') as fout:

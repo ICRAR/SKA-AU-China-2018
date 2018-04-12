@@ -6,6 +6,9 @@ function print_usage {
 	echo "-h, -?: Show this help"
 	echo "-d <data_dir>:    Provide the directory where all the data resides (or will reside)"
 	echo "-o <obs_name>: Provide the observation name"
+        echo "-j <cpus>: how many cpus will be used"
+        echo "-H <host>: which host will be used to deploy"
+        echo "-p <port>: provied the port"
 }
 #config daliuge enviroment
 source /home/blao/MWA/bashrc
@@ -26,13 +29,6 @@ HOST=localhost
 PORT=8001
 PYTHON=`which python`
 
-cd ${DATA_DIR}/${OBS_NAME}
-
-if [[ -e ${OBS_NAME}_flags.zip ]]
-then
-      unzip ${OBS_NAME}_flags.zip
-      FLAGFILES="-flagfiles ${OBS_NAME}_%%.mwaf"
-fi
 
 while getopts "d:o:h?" opt
 do
@@ -43,6 +39,12 @@ do
 		o)
 			OBS_NAME="$OPTARG"
 			;;
+                j)      NCPUS="$OPTARG"
+                        ;;
+                H)      HOST="$OPTARG"
+                        ;;
+                p)      PORT="OPTARG"
+                        ;;
 		[h?])
 			print_usage
 			exit 0
@@ -55,7 +57,14 @@ done
 
 now="$(date -u +%F_%T)"
 
-#cd ${home_dir}
+cd ${DATA_DIR}/${OBS_NAME}
+
+if [[ -e ${OBS_NAME}_flags.zip ]]
+then
+      unzip ${OBS_NAME}_flags.zip
+      FLAGFILES="-flagfiles ${OBS_NAME}_%%.mwaf"
+fi
+
 
 # Replace the placeholder variables (i.e., transition from a Logical Graph
 # Template into a Logical Graph).

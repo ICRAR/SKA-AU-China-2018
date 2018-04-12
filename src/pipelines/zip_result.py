@@ -21,7 +21,7 @@ def zipResult(result_dir):
 
 	zf = zipfile.ZipFile(zipFileName, "w", zipfile.zlib.DEFLATED)
 
-    filelist = os.listdir(result_dir)
+    	filelist = os.listdir(result_dir)
 
 	for file in filelist:
 		zf.write(os.path.join(result_dir, file))

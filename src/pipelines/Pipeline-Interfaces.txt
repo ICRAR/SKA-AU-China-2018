@@ -34,6 +34,10 @@ Selavy pipeline with NGAS download:
       
 ---------------------
 
+What is in NGAS?
+      - Use the following command (on the command line, from the cluster) to see data products in NGAS:
+wget -O /dev/stdout 'http://159.226.233.198:7777/QUERY?query=files_list&format=list'
+
 Retrieving from NGAS:
       - Get an ASKAP image based on the file ID within NGAS, e.g.,
         $ ./ngas-get-files.py -f observations-2338-image_cubes-image.i.SB2338.cont.restored.fits

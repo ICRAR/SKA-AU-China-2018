@@ -3,42 +3,21 @@
   "linkToPortIdProperty": "toPort",
   "nodeDataArray": [ 
 {"category":"Start", "text":"Start", "key":-1, "loc":"-214.3281249999999 -380.9999999999998"},
-<<<<<<< HEAD
-{"category":"End", "text":"End", "key":-2, "loc":"354.6718750000002 274.99999999999994"},
-{"category":"BashShellApp", "text":"make_metafits", "execution_time":5, "num_cpus":1, "group_start":0, "Arg01":"make_metafits.py -g DATA_DIR/OBS_NAME", "Arg02":"", "Arg03":"", "Arg04":"", "Arg05":"", "Arg06":"", "Arg07":"", "Arg08":"", "Arg09":"", "Arg10":"", "key":-4, "loc":"-213.32812499999994 -287.9999999999999"},
-{"category":"BashShellApp", "text":"cotter", "execution_time":5, "num_cpus":1, "group_start":0, "Arg01":"cotter -j NCPUS ", "Arg02":"FLAGFILES ", "Arg03":"-timeres 4 ", "Arg04":"-freqres 10 *gpubox*.fits ", "Arg05":"-edgewidth 80 ", "Arg06":"-m %i[-7]", "Arg07":"-o DATA_DIR/OBS_NAME.ms", "Arg08":"", "Arg09":"", "Arg10":"", "key":-5, "loc":"-213.328125 -117"},
-{"category":"BashShellApp", "text":"calibrate", "execution_time":5, "num_cpus":1, "group_start":0, "Arg01":"calibrate %i[-9]", "Arg02":"-j NCPUS", "Arg03":"-p %i[-11] %i[-12]", "Arg04":"-m %i[-10]", "Arg05":"-minuv 20", "Arg06":"-applybeam ", "Arg07":"%o[-13]", "Arg08":"", "Arg09":"", "Arg10":"", "key":-6, "loc":"-210.328125 8"},
-{"category":"file", "text":"metafits", "data_volume":5, "group_end":0, "check_filepath_exists":"1", "filepath":"", "dirname":"", "key":-7, "loc":"-212.328125 -208.99999999999991"},
-{"category":"file", "text":"Observation", "data_volume":5, "group_end":0, "check_filepath_exists":"1", "filepath":"DATA_DIR/OBS_NAME", "dirname":"", "key":-8, "loc":"-395.328125 -117"},
-{"category":"file", "text":"MS", "data_volume":5, "group_end":0, "check_filepath_exists":"1", "filepath":"DATA_DIR/OBS_NAME.ms", "dirname":"", "key":-9, "loc":"139.671875 -117"},
-{"category":"file", "text":"calibration model", "data_volume":5, "group_end":0, "check_filepath_exists":"1", "filepath":"", "dirname":"", "key":-10, "loc":"-403.328125 155"},
-{"category":"file", "text":"gains", "data_volume":5, "group_end":0, "check_filepath_exists":"1", "filepath":"", "dirname":"", "key":-11, "loc":"-413.328125 -35"},
-{"category":"file", "text":"phases", "data_volume":5, "group_end":0, "check_filepath_exists":"1", "filepath":"", "dirname":"", "key":-12, "loc":"-408.328125 50"},
-{"category":"file", "text":"calibration solution", "data_volume":5, "group_end":0, "check_filepath_exists":"1", "filepath":"", "dirname":"", "key":-13, "loc":"-22.328125 8"},
-{"category":"BashShellApp", "text":"applysolutions", "execution_time":5, "num_cpus":1, "group_start":0, "Arg01":"applysolutions %i[-9] %i[-13]", "Arg02":"", "Arg03":"", "Arg04":"", "Arg05":"", "Arg06":"", "Arg07":"", "Arg08":"", "Arg09":"", "Arg10":"", "key":-14, "loc":"-203.328125 141"},
-{"category":"BashShellApp", "text":"wsclean", "execution_time":5, "num_cpus":1, "group_start":0, "Arg01":"wsclean -name %o[-18] ", "Arg02":"-size 4000 4000 ", "Arg03":"-niter 4000000", "Arg04":"-stopnegative ", "Arg05":"-smallinversion ", "Arg06":"-j ${NCPUS} %i[-9]", "Arg07":"", "Arg08":"", "Arg09":"", "Arg10":"", "key":-16, "loc":"355.6718749999997 81"},
-=======
-{"category":"BashShellApp", "text":"make_metafits", "execution_time":5, "num_cpus":1, "group_start":0, "Arg01":"make_metafits.py -g ${DATA_DIR}/${OBS_NAME}", "Arg02":"", "Arg03":"", "Arg04":"", "Arg05":"", "Arg06":"", "Arg07":"", "Arg08":"", "Arg09":"", "Arg10":"", "key":-4, "loc":"-213.32812499999994 -287.9999999999999"},
-{"category":"BashShellApp", "text":"cotter", "execution_time":5, "num_cpus":1, "group_start":0, "Arg01":"cotter -j ${NCPUS} ", "Arg02":"${FLAGFILES}", "Arg03":"-timeres 4 ", "Arg04":"-freqres 10 ${DATA_DIR}/${OBS_NAME}/*gpubox*.fits ", "Arg05":"-edgewidth 80 ", "Arg06":"-m %i[-7]", "Arg07":"-o ${DATA_DIR}/${OBS_NAME}.ms", "Arg08":"", "Arg09":"", "Arg10":"", "key":-5, "loc":"-213.328125 -117"},
-{"category":"file", "text":"metafits", "data_volume":5, "group_end":0, "check_filepath_exists":"1", "filepath":"", "dirname":"", "key":-7, "loc":"-213.32812499999997 -208.9999999999998"},
-{"category":"file", "text":"Observation", "data_volume":5, "group_end":0, "check_filepath_exists":"1", "filepath":"${DATA_DIR}/${OBS_NAME}", "dirname":"", "key":-8, "loc":"-395.328125 -117"},
-{"category":"file", "text":"MS", "data_volume":5, "group_end":0, "check_filepath_exists":"1", "filepath":"${DATA_DIR}/${OBS_NAME}.ms", "dirname":"", "key":-9, "loc":"139.671875 -117"},
->>>>>>> b90d099b54312ce70e0cae51df5e131fbc1d7a17
-{"category":"file", "text":"flags", "data_volume":5, "group_end":0, "check_filepath_exists":"1", "filepath":"", "dirname":"", "key":-17, "loc":"-369.328125 -214"},
+{"category":"BashShellApp", "text":"make_metafits", "execution_time":5, "num_cpus":1, "group_start":0, "Arg01":"cd DATA_DIR/OBS_NAME &", "Arg02":"PYTHON /home/blao/MWA/python/bin/make_metafits.py -g OBS_NAME", "Arg03":"-o  DATA_DIR/OBS_NAME/OBS_NAME.metafits", "Arg04":"", "Arg05":"", "Arg06":"", "Arg07":"", "Arg08":"", "Arg09":"", "Arg10":"", "key":-4, "loc":"-214.6173428324355 -306.693658570316"},
+{"category":"BashShellApp", "text":"cotter", "execution_time":5, "num_cpus":1, "group_start":0, "Arg01":"cd DATA_DIR/OBS_NAME & cotter -j NCPUS", "Arg02":"FLAGFILES", "Arg03":"-timeres 4 ", "Arg04":"-freqres 10 DATA_DIR/OBS_NAME/*gpubox*.fits ", "Arg05":"-edgewidth 80 ", "Arg06":"-m DATA_DIR/OBS_NAME/OBS_NAME.metafits", "Arg07":"-o DATA_DIR/OBS_NAME/OBS_NAME.ms", "Arg08":"", "Arg09":"", "Arg10":"", "key":-5, "loc":"-214.61734283243555 -117.6446089162178"},
+{"category":"file", "text":"metafits", "data_volume":5, "group_end":0, "check_filepath_exists":"0", "filepath":"", "dirname":"", "key":-7, "loc":"-214.6173428324356 -225.75983182166257"},
+{"category":"file", "text":"Observation", "data_volume":5, "group_end":0, "check_filepath_exists":"0", "filepath":"DATA_DIR/OBS_NAME", "dirname":"", "key":-8, "loc":"-395.328125 -117"},
+{"category":"file", "text":"MS", "data_volume":5, "group_end":0, "check_filepath_exists":"0", "filepath":"", "dirname":"", "key":-9, "loc":"-5.365131149004412 -117.64460891621772"},
+{"category":"file", "text":"flags", "data_volume":5, "group_end":0, "check_filepath_exists":"0", "filepath":"", "dirname":"", "key":-17, "loc":"-400.91396189467184 -213.35539108378205"},
 {"category":"Comment", "text":"MWA flagging pipeline", "key":-19, "loc":"49.671875 -423"},
 {"category":"End", "text":"End", "key":-2, "loc":"-213.5880694009208 -1.127838134765625"}
  ],
   "linkDataArray": [ 
-{"from":-1, "to":-4, "fromPort":"B", "toPort":"T", "points":[-214.328125,-361,-214.328125,-351,-214.328125,-334.0995740266766,-213.32812499999997,-334.0995740266766,-213.32812499999997,-317.19914805335316,-213.32812499999997,-307.19914805335316]},
-{"from":-4, "to":-7, "fromPort":"B", "toPort":"T", "points":[-213.32812499999991,-268.8008519466467,-213.32812499999991,-258.8008519466467,-213.32812499999991,-252.43186289348932,-213.328125,-252.43186289348932,-213.328125,-246.06287384033195,-213.328125,-236.06287384033195]},
-{"from":-7, "to":-5, "fromPort":"B", "toPort":"T", "points":[-213.328125,-181.93712615966788,-213.328125,-171.93712615966788,-213.328125,-159.06813710651053,-213.328125,-159.06813710651053,-213.328125,-146.19914805335318,-213.328125,-136.19914805335318]},
-{"from":-8, "to":-5, "fromPort":"R", "toPort":"L", "points":[-344.0579299926758,-117,-334.0579299926758,-117,-293.48980458697935,-117,-293.48980458697935,-117,-252.92167918128288,-117,-242.92167918128288,-117]},
-{"from":-5, "to":-9, "fromPort":"R", "toPort":"L", "points":[-183.73457081871715,-117,-173.73457081871715,-117,-31.778841653255057,-117,-31.778841653255057,-117,110.17688751220703,-117,120.17688751220703,-117]},
-{"from":-17, "to":-5, "fromPort":"R", "toPort":"L", "points":[-343.7200469970703,-214,-333.7200469970703,-214,-293.3208630891766,-214,-293.3208630891766,-117,-252.92167918128288,-117,-242.92167918128288,-117]},
-<<<<<<< HEAD
-{"from":-16, "to":-2, "fromPort":"B", "toPort":"T", "points":[355.6718749999997,100.19914805335318,355.6718749999997,110.19914805335318,355.6718749999997,177.59957402667658,354.6718750000002,177.59957402667658,354.6718750000002,244.99999999999994,354.6718750000002,254.99999999999994]}
+{"from":-1, "to":-4, "fromPort":"B", "toPort":"T", "points":[-214.3281249999999,-360.9999999999998,-214.3281249999999,-350.9999999999998,-214.3281249999999,-343.37754115973485,-214.61734283243547,-343.37754115973485,-214.61734283243547,-335.75508231947,-214.61734283243547,-325.75508231947]},
+{"from":-4, "to":-7, "fromPort":"B", "toPort":"T", "points":[-214.61734283243547,-287.63223482116206,-214.61734283243547,-277.63223482116206,-214.61734283243547,-270.11269998807893,-214.61734283243555,-270.11269998807893,-214.61734283243555,-262.59316515499586,-214.61734283243555,-252.59316515499586]},
+{"from":-7, "to":-5, "fromPort":"B", "toPort":"T", "points":[-214.61734283243555,-198.92649848832917,-214.61734283243555,-188.92649848832917,-214.61734283243555,-167.81626557685047,-214.61734283243555,-167.81626557685047,-214.61734283243555,-146.70603266537177,-214.61734283243555,-136.70603266537177]},
+{"from":-8, "to":-5, "fromPort":"R", "toPort":"L", "points":[-344.328125,-117,-334.328125,-117,-294.10344579079475,-117,-294.10344579079475,-117.6446089162178,-253.87876658158953,-117.6446089162178,-243.87876658158953,-117.6446089162178]},
+{"from":-5, "to":-9, "fromPort":"R", "toPort":"L", "points":[-185.3559190832816,-117.6446089162178,-175.3559190832816,-117.6446089162178,-105.11052511614301,-117.6446089162178,-105.11052511614301,-117.64460891621775,-34.86513114900441,-117.64460891621775,-24.865131149004412,-117.64460891621775]},
+{"from":-5, "to":-2, "fromPort":"B", "toPort":"T", "points":[-214.61734283243555,-98.58318516706383,-214.61734283243555,-88.58318516706383,-214.61734283243555,-59.85551165091473,-213.5880694009208,-59.85551165091473,-213.5880694009208,-31.127838134765625,-213.5880694009208,-21.127838134765625]},
+{"from":-17, "to":-5, "fromPort":"R", "toPort":"L", "points":[-375.4139618946721,-213.35539108378217,-365.4139618946721,-213.35539108378217,-309.64636423813084,-213.35539108378217,-309.64636423813084,-117.6446089162178,-253.87876658158953,-117.6446089162178,-243.87876658158953,-117.6446089162178]}
  ]}
-=======
-{"from":-5, "to":-2, "fromPort":"B", "toPort":"T", "points":[-213.328125,-97.80085194664682,-213.328125,-87.80085194664682,-213.328125,-59.46434504070622,-213.5880694009208,-59.46434504070622,-213.5880694009208,-31.127838134765625,-213.5880694009208,-21.127838134765625]}
- ]}
->>>>>>> b90d099b54312ce70e0cae51df5e131fbc1d7a17

@@ -35,7 +35,6 @@ class BuildGraph(AbstractBuildGraph):
             command='source /home/ska_au_china_2018/python-test/bin/activate'
                     ' && cd /home/ska_au_china_2018/SKA-AU-China-2018/src/pipelines'
                     ' && python trigger_askap.py '
-                    ' --inpath /home/ska_au_china_2018/SKA-AU-China-2018/src/pipelines/askap_imaging/'
                     ' --nodelist 192.168.0.101,192.168.0.102,192.168.0.103,192.168.0.104 '
                     ' --masterport 8002'
         )

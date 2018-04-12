@@ -8,7 +8,7 @@
 parset_name=cimager.in
 cimager_config_name=cimager.config
 log=cimager.log
-indata=/home/ska_au_china_2018/SKA-AU-China-2018/askap_imaging/singleSource_Continuum.ms
+indata=/home/ska_au_china_2018/SKA-AU-China-2018/src/pipelines/askap_imaging/singleSource_Continuum.ms
 #indata=/home/cwu/askap_imaging/singleSource_Continuum.ms
 outImageName="image.I.1934-638_bm-0_iter-0"
 #nchan=useful to decide resource needed; currently we are using fixed number of cores.

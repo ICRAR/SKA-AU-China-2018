@@ -130,6 +130,7 @@ def main():
         else:
             outfiles = files
 
+    status = {}
     for fid, fn in zip(files, outfiles):
         print(">>> Retrieving file: %s" % fid)
         if os.path.exists(fn):
@@ -139,6 +140,7 @@ def main():
             print("Try to get CRC32 for the file from remote ...")
             crc32_remote = get_crc32(fid, host=args.host, port=args.port)
             if crc32_local == crc32_remote:
+                status[fid] = "skipped"
                 print("Local existing file is identical with the remote one")
                 print("*** skip ***")
                 continue
@@ -153,9 +155,18 @@ def main():
         crc32_remote = get_crc32(fid, host=args.host, port=args.port)
         print("Checking the CRC32 between the local and remote files ...")
         if crc32_local == crc32_remote:
+            status[fid] = "ok"
             print("Retrieved file CRC32-check OK")
         else:
+            status[fid] = "retrieved but CRC32 checking failed!"
             raise ValueError("Retrieved file CRC32-check failed!")
+
+    print("=================================================")
+    print("Summary:")
+    print("-------------------------------------------------")
+    for fid in files:
+        print("%s\t\t: %s" % (fid, status[fid]))
+    print("-------------------------------------------------")
 
     if args.path:
         open(args.path, "w").write("\n".join([

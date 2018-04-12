@@ -1,1 +1,1 @@
-../common/build_graph_common.py
+../common_integration/build_graph_common.py

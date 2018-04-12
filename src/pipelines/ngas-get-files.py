@@ -131,14 +131,15 @@ def main():
             outfiles = files
 
     status = {}
-    for fid, fn in zip(files, outfiles):
-        print(">>> Retrieving file: %s" % fid)
-        if os.path.exists(fn):
-            print("File already exists: %s" % fn)
+    for fid, outfn in zip(files, outfiles):
+        fn = os.path.basename(fid)
+        print(">>> Retrieving file: %s" % fn)
+        if os.path.exists(outfn):
+            print("File already exists: %s" % outfn)
             print("Check existing file by CRC32 ...")
-            crc32_local = calc_crc32(fn)
+            crc32_local = calc_crc32(outfn)
             print("Try to get CRC32 for the file from remote ...")
-            crc32_remote = get_crc32(fid, host=args.host, port=args.port)
+            crc32_remote = get_crc32(fn, host=args.host, port=args.port)
             if crc32_local == crc32_remote:
                 status[fid] = "skipped"
                 print("Local existing file is identical with the remote one")
@@ -147,19 +148,19 @@ def main():
             else:
                 print("Local existing file is different from the remote one")
                 print("*** delete and retrieve ***")
-                os.remove(fn)
+                os.remove(outfn)
 
-        outdir = os.path.dirname(fn)
+        outdir = os.path.dirname(outfn)
         try:
             os.mkdir(outdir)
         except OSError as e:
             if e.errno == 17:
                 pass
 
-        get_file(fid, outfile=fn, host=args.host, port=args.port)
+        get_file(fn, outfile=outfn, host=args.host, port=args.port)
         print("Calculating CRC32 for the local file ...")
-        crc32_local = calc_crc32(fn)
-        crc32_remote = get_crc32(fid, host=args.host, port=args.port)
+        crc32_local = calc_crc32(outfn)
+        crc32_remote = get_crc32(fn, host=args.host, port=args.port)
         print("Checking the CRC32 between the local and remote files ...")
         if crc32_local == crc32_remote:
             status[fid] = "ok"
@@ -177,7 +178,7 @@ def main():
 
     if args.path:
         open(args.path, "w").write("\n".join([
-            os.path.abspath(fn) for f in outfiles
+            os.path.abspath(f) for f in outfiles
         ]) + "\n")
         print("Absolute paths of retrieved files saved into: %s" % args.path)
 

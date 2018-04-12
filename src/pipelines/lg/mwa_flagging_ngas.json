@@ -1,0 +1,23 @@
+{ "class": "go.GraphLinksModel",
+  "linkFromPortIdProperty": "fromPort",
+  "linkToPortIdProperty": "toPort",
+  "nodeDataArray": [ 
+{"category":"Start", "text":"Start", "key":-1, "loc":"-214.3281249999999 -380.9999999999998"},
+{"category":"BashShellApp", "text":"make_metafits", "execution_time":5, "num_cpus":1, "group_start":0, "Arg01":"make_metafits.py -g ${DATA_DIR}/${OBS_NAME}", "Arg02":"", "Arg03":"", "Arg04":"", "Arg05":"", "Arg06":"", "Arg07":"", "Arg08":"", "Arg09":"", "Arg10":"", "key":-4, "loc":"-213.32812499999994 -287.9999999999999"},
+{"category":"BashShellApp", "text":"cotter", "execution_time":5, "num_cpus":1, "group_start":0, "Arg01":"cotter -j ${NCPUS} ", "Arg02":"${FLAGFILES}", "Arg03":"-timeres 4 ", "Arg04":"-freqres 10 ${DATA_DIR}/${OBS_NAME}/*gpubox*.fits ", "Arg05":"-edgewidth 80 ", "Arg06":"-m %i[-7]", "Arg07":"-o ${DATA_DIR}/${OBS_NAME}.ms", "Arg08":"", "Arg09":"", "Arg10":"", "key":-5, "loc":"-213.328125 -117"},
+{"category":"file", "text":"metafits", "data_volume":5, "group_end":0, "check_filepath_exists":"1", "filepath":"", "dirname":"", "key":-7, "loc":"-213.32812499999997 -208.9999999999998"},
+{"category":"file", "text":"Observation", "data_volume":5, "group_end":0, "check_filepath_exists":"1", "filepath":"${DATA_DIR}/${OBS_NAME}", "dirname":"", "key":-8, "loc":"-395.328125 -117"},
+{"category":"file", "text":"MS", "data_volume":5, "group_end":0, "check_filepath_exists":"1", "filepath":"${DATA_DIR}/${OBS_NAME}.ms", "dirname":"", "key":-9, "loc":"139.671875 -117"},
+{"category":"file", "text":"flags", "data_volume":5, "group_end":0, "check_filepath_exists":"1", "filepath":"", "dirname":"", "key":-17, "loc":"-369.328125 -214"},
+{"category":"Comment", "text":"MWA flagging pipeline", "key":-19, "loc":"49.671875 -423"},
+{"category":"End", "text":"End", "key":-2, "loc":"-213.5880694009208 -1.127838134765625"}
+ ],
+  "linkDataArray": [ 
+{"from":-1, "to":-4, "fromPort":"B", "toPort":"T", "points":[-214.328125,-361,-214.328125,-351,-214.328125,-334.0995740266766,-213.32812499999997,-334.0995740266766,-213.32812499999997,-317.19914805335316,-213.32812499999997,-307.19914805335316]},
+{"from":-4, "to":-7, "fromPort":"B", "toPort":"T", "points":[-213.32812499999991,-268.8008519466467,-213.32812499999991,-258.8008519466467,-213.32812499999991,-252.43186289348932,-213.328125,-252.43186289348932,-213.328125,-246.06287384033195,-213.328125,-236.06287384033195]},
+{"from":-7, "to":-5, "fromPort":"B", "toPort":"T", "points":[-213.328125,-181.93712615966788,-213.328125,-171.93712615966788,-213.328125,-159.06813710651053,-213.328125,-159.06813710651053,-213.328125,-146.19914805335318,-213.328125,-136.19914805335318]},
+{"from":-8, "to":-5, "fromPort":"R", "toPort":"L", "points":[-344.0579299926758,-117,-334.0579299926758,-117,-293.48980458697935,-117,-293.48980458697935,-117,-252.92167918128288,-117,-242.92167918128288,-117]},
+{"from":-5, "to":-9, "fromPort":"R", "toPort":"L", "points":[-183.73457081871715,-117,-173.73457081871715,-117,-31.778841653255057,-117,-31.778841653255057,-117,110.17688751220703,-117,120.17688751220703,-117]},
+{"from":-17, "to":-5, "fromPort":"R", "toPort":"L", "points":[-343.7200469970703,-214,-333.7200469970703,-214,-293.3208630891766,-214,-293.3208630891766,-117,-252.92167918128288,-117,-242.92167918128288,-117]},
+{"from":-5, "to":-2, "fromPort":"B", "toPort":"T", "points":[-213.328125,-97.80085194664682,-213.328125,-87.80085194664682,-213.328125,-59.46434504070622,-213.5880694009208,-59.46434504070622,-213.5880694009208,-31.127838134765625,-213.5880694009208,-21.127838134765625]}
+ ]}

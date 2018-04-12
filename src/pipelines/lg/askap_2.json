@@ -3,9 +3,9 @@
   "linkToPortIdProperty": "toPort",
   "nodeDataArray": [ 
 {"category":"Start", "text":"Start", "key":-1, "loc":"-734.6137675659494 -661.3701450669103"},
-{"category":"BashShellApp", "text":"Generator Script", "execution_time":5, "num_cpus":1, "group_start":0, "Arg01":"source /home/cwu/askap_imaging/generator_cimager.sh", "Arg02":"", "Arg03":"", "Arg04":"", "Arg05":"", "Arg06":"", "Arg07":"", "Arg08":"", "Arg09":"", "Arg10":"", "key":-8, "loc":"-486.00000000000006 -656.0000000000002"},
+{"category":"BashShellApp", "text":"Generator Script", "execution_time":5, "num_cpus":1, "group_start":0, "Arg01":"source /tmp/cimager/generator_cimager.sh", "Arg02":"", "Arg03":"", "Arg04":"", "Arg05":"", "Arg06":"", "Arg07":"", "Arg08":"", "Arg09":"", "Arg10":"", "key":-8, "loc":"-486.00000000000006 -656.0000000000002"},
 {"category":"file", "text":"Parset", "data_volume":5, "group_end":0, "check_filepath_exists":"1", "filepath":"", "dirname":"", "key":-11, "loc":"-328 -480"},
-{"category":"BashShellApp", "text":"Imager\n(Exec Script)", "execution_time":5, "num_cpus":1, "group_start":0, "Arg01":"source /home/cwu/askap_imaging/run_cimager.sh", "Arg02":"", "Arg03":"", "Arg04":"", "Arg05":"", "Arg06":"", "Arg07":"", "Arg08":"", "Arg09":"", "Arg10":"", "key":-12, "loc":"-316.99999999999994 -644"},
+{"category":"BashShellApp", "text":"Imager\n(Exec Script)", "execution_time":5, "num_cpus":1, "group_start":0, "Arg01":"source /tmp/cimager/run_cimager.sh", "Arg02":"", "Arg03":"", "Arg04":"", "Arg05":"", "Arg06":"", "Arg07":"", "Arg08":"", "Arg09":"", "Arg10":"", "key":-12, "loc":"-316.99999999999994 -644"},
 {"category":"file", "text":"Output \nImage", "data_volume":5, "group_end":0, "check_filepath_exists":"1", "filepath":"", "dirname":"", "key":-16, "loc":"-215 -643"},
 {"category":"file", "text":"Config\nInput", "data_volume":5, "group_end":0, "check_filepath_exists":"1", "filepath":"", "dirname":"", "key":-22, "loc":"-389.8000030517581 -798.0000000000001"},
 {"category":"End", "text":"End", "key":-2, "loc":"-119 -649"}

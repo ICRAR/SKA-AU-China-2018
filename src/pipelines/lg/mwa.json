@@ -4,10 +4,10 @@
   "nodeDataArray": [ 
 {"category":"Start", "text":"Start", "key":-1, "loc":"-248.88162894125904 -377.7091901008323"},
 {"category":"End", "text":"End", "key":-2, "loc":"-243.11180052614387 -49.00860238275209"},
-{"category":"file", "text":"MS", "data_volume":5, "group_end":0, "check_filepath_exists":"1", "filepath":"${DATA_DIR}/${OBS_NAME}.ms", "dirname":"", "key":-9, "loc":"-98.39295909690426 -183.97083519726868"},
+{"category":"file", "text":"MS", "data_volume":5, "group_end":0, "check_filepath_exists":"0", "filepath":"${DATA_DIR}/${OBS_NAME}.ms", "dirname":"", "key":-9, "loc":"-98.39295909690426 -183.97083519726868"},
 {"category":"file", "text":"calibration solution", "data_volume":5, "group_end":0, "check_filepath_exists":"1", "filepath":"${DATA_DIR}/1059304872-HerA-119_solutions.bin ", "dirname":"", "key":-13, "loc":"-459.67936239594087 -235.36319743316835"},
-{"category":"BashShellApp", "text":"applysolutions", "execution_time":5, "num_cpus":1, "group_start":0, "Arg01":"applysolutions ", "Arg02":"%i[-9] ", "Arg03":"%i[-13]", "Arg04":"", "Arg05":"", "Arg06":"", "Arg07":"", "Arg08":"", "Arg09":"", "Arg10":"", "key":-14, "loc":"-248.64054626480237 -237.35018845028534"},
-{"category":"BashShellApp", "text":"wsclean", "execution_time":5, "num_cpus":1, "group_start":0, "Arg01":"wsclean -name %o[-18] ", "Arg02":"-size 4000 4000 ", "Arg03":"-niter 4000000", "Arg04":"-stopnegative ", "Arg05":"-smallinversion ", "Arg06":"-j ${NCPUS} ", "Arg07":"channel-range 1 5", "Arg08":"%i[-9]", "Arg09":"", "Arg10":"", "key":-16, "loc":"-243.111800526144 -131.3340326304369"},
+{"category":"BashShellApp", "text":"applysolutions", "execution_time":5, "num_cpus":1, "group_start":0, "Arg01":"/home/software/bin/bin/applysolutions ", "Arg02":"%i[-9] ", "Arg03":"%i[-13]", "Arg04":"", "Arg05":"", "Arg06":"", "Arg07":"", "Arg08":"", "Arg09":"", "Arg10":"", "key":-14, "loc":"-248.64054626480237 -237.35018845028534"},
+{"category":"BashShellApp", "text":"wsclean", "execution_time":5, "num_cpus":1, "group_start":0, "Arg01":"/home/software/bin/bin/wsclean", "Arg02":"-size 4000 4000 ", "Arg03":"-niter 4000000", "Arg04":"-stopnegative ", "Arg05":"-smallinversion ", "Arg06":"-j ${NCPUS} ", "Arg07":"channel-range 1 5", "Arg08":"%i[-9]", "Arg09":"-name %o[-18] ", "Arg10":"", "key":-16, "loc":"-243.111800526144 -131.3340326304369"},
 {"category":"Comment", "text":"MWA imaging", "key":-19, "loc":"49.671875 -423"}
  ],
   "linkDataArray": [ 

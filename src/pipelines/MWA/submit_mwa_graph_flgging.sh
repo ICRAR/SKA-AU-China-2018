@@ -23,7 +23,7 @@ NCPUS=68
 if [[ -e ${OBS_NAME}_flags.zip ]]
 then
       unzip ${OBS_NAME}_flags.zip
-      FLAGFILES=-flagfiles ${OBS_NAME}_%%.mwaf
+      FLAGFILES="-flagfiles ${OBS_NAME}_%%.mwaf"
 fi
 
 while getopts "d:o:h?" opt

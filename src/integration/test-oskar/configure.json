@@ -1,0 +1,28 @@
+{
+  "env": "/opt/oskar_gpu/bin",
+  "source_num": 10,
+  "sim":
+  {
+    "observation":
+    {
+      "ct_ra_deg": 10.0,
+      "ct_dec_deg": -10.0,
+      "freq_hz": 150.0e6
+    },
+    "telescope":
+    {
+      "file": "telescopes/ska1low.tm"
+    },
+    "sky":
+    {
+      "file": "sky_s10.osm"
+    }
+  },
+
+  "imaging":
+  {
+    "overwrite": true,
+    "size": 512,
+    "fov_deg": 5
+  }
+}

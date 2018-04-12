@@ -4,7 +4,9 @@ Selavy.threshold= 0.05
 Selavy.flagGrowth = true
 Selavy.growthThreshold = 0.01
 #
+Selavy.writeDuchampFiles = false
 Selavy.Fitter.doFit = true
+Selavy.Fitter.writeComponentMap = false
 Selavy.Fitter.fitTypes = [full]
 Selavy.Fitter.boxPadSize  = 5
 Selavy.Fitter.useNoise = false

@@ -21,14 +21,16 @@ def zipResult(result_dir):
 
 	zf = zipfile.ZipFile(zipFileName, "w", zipfile.zlib.DEFLATED)
 
-	for file in os.listdir():
-		zf.write(os.path.join(result_dir, file),file)
+    filelist = os.listdir(result_dir)
+
+	for file in filelist:
+		zf.write(os.path.join(result_dir, file))
 
 	zf.close()
 
 	return zipFileName
 
-if __file__ == '__main__':
+if __name_ == '__main__':
     parser = argparse.ArgumentParser(description='Push to NGAS')
     # parser.add_argument('--configfile', dest='config_file', help='each line is an image path',
     #                     default=None, type=str)

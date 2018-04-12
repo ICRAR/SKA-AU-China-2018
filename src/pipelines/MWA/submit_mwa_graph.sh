@@ -44,4 +44,4 @@ now="$(date -u +%F_%T)"
 # Template into a Logical Graph).
 # Then translate into a physical graph template, partition, etc, and finally submit
 sed "s|\${NCPUS}|${NCPUS}|g; s|\${DATA_DIR}|${DATA_DIR}|g; s|\${OBS_NAME}|${OBS_NAME}|g" "$lg_file" \
-	| dlg unroll-and-partition | dlg map | dlg submit -s "${OBS_NAME}_${now}" -H 202.127.29.97 -p 8001
+	| dlg unroll-and-partition | dlg map -N 202.127.29.97,202.127.29.97 -i 1 | dlg submit -s "${OBS_NAME}_${now}" -H 202.127.29.97 -p 8001

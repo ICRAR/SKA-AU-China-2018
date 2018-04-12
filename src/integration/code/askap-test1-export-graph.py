@@ -30,6 +30,9 @@ class BuildGraph(AbstractBuildGraph):
         memory_drop_03 = self.create_memory_drop(
             node_id=NODE_ID,
         )
+        memory_drop_04 = self.create_memory_drop(
+            node_id=NODE_ID,
+        )
         bash_drop = self.create_bash_shell_app(
             node_id=NODE_ID,
             command='source /home/ska_au_china_2018/python-test/bin/activate'
@@ -57,9 +60,8 @@ class BuildGraph(AbstractBuildGraph):
                     ' --nodelist 192.168.0.101,192.168.0.102,192.168.0.103,192.168.0.104 '
                     ' --masterport 8002'
         )
-
-
-
+        compare.addInput(memory_drop_03)
+        compare.addInput(memory_drop_04)
 
 
 def build_and_deploy_graph(**kwargs):

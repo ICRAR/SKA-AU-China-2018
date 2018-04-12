@@ -42,7 +42,7 @@ def parse_args():
                         default='%s/src/pipelines/lg/selavy_ngas_test.json' % REPO_HOME, type=str)
 
     args = parser.parse_args()
-    if (args.img_list is None):
+    if (args.file_id_list is None):
         parser.print_help()
         sys.exit(1)
 

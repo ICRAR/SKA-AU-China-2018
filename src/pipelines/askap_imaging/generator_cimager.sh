@@ -32,6 +32,7 @@ echo "command to pull data ${indata} from NGAS" >${pullFromNGAS}
 #++++++++++++++++++++++++++++++++++++++
 echo "
 Cimager.dataset                                = $indata
+Cimager.imagetype                                = fits
 #
 Cimager.datacolumn                             = DATA
 #Cimager.Channels                               = [1, %w]

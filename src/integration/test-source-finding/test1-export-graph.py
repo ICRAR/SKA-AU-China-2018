@@ -9,7 +9,7 @@ from dlg.droputils import get_roots
 from dlg.manager.client import DataIslandManagerClient
 
 from build_graph_common import AbstractBuildGraph
-from wait_for_file_drop import WaitForFile
+from common_integration.wait_for_file_drop import WaitForFile
 
 NODE_ID = '192.168.0.101'
 LOGGER = logging.getLogger(__name__)
@@ -45,7 +45,9 @@ class BuildGraph(AbstractBuildGraph):
         wait_for_file = self.create_app(
             NODE_ID,
             self.get_module_name(WaitForFile),
-            'app_copy_model',
+            'app_wait_for_file',
+            root_directory='/tmp',
+            starts_with='total.'
         )
         wait_for_file.addInput(memory_drop_02)
         wait_for_file.addOutput(memory_drop_03)

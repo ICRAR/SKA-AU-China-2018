@@ -122,7 +122,8 @@ module load askapsoft
 module load askapdata
 cd ${workdir}
 " >${cimager_config_name}
-echo "srun --export=ALL --ntasks=${nnodes} --ntasks-per-node=${nppn} cimager -p -c ${parset_name} > ${log}" >>${cimager_config_name}
+echo "#srun --export=ALL --ntasks=${nnodes} --ntasks-per-node=${nppn} cimager -p -c ${parset_name} > ${log}" >>${cimager_config_name}
+echo "cimager -p -c ${parset_name} > ${log}" >>${cimager_config_name}
 #++++++++++++++++++++++++++++++++++++++
 # 3. Prepare the cimager execution command: 
 echo "source ${cimager_config_name}" >${runfile_cimager}

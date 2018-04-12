@@ -44,11 +44,11 @@ logger = logging.getLogger(__name__)
 
 class SourceExtractorKickOff(object):
 
-    def __init__(**kwargs):
+    def __init__(self, **kwargs):
         self.command = map(kwargs['command'].split(':'))
         self.file_ids = map(lambda x: x.strip(), kwargs['file_ids'].split(':'))
 
-    def handle_event(evt):
+    def handle_event(self, evt):
 
         if evt.file_version != 1:
             logger.info('File %s arrived with version != 1 (=%d), skipping', evt.file_id, evt.file_version)

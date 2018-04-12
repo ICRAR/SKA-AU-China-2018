@@ -51,8 +51,8 @@ if __name__ == "__main__":
     work_dir = '/tmp/dlg_work_dir_%.3f' % time.time()
     os.mkdir(work_dir)
 
-    gen_script = args.inpath + 'generator_cimager.sh'
-    exec_script = args.inpath + 'run_cimager.sh'
+    gen_script = "source " + args.inpath + 'generator_cimager.sh'
+    exec_script = "source " + args.inpath + 'run_cimager.sh'
     with open(args.lg_file, 'r') as fin:
         aa = json.load(fin)
         nodes = aa['nodeDataArray']

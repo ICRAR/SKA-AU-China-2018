@@ -52,7 +52,7 @@ if __name__ == "__main__":
     os.mkdir(work_dir)
 
     gen_script = "source " + args.repopath + 'generator_cimager.sh'
-    exec_script = "source " + '/tmp/run_cimager.sh'
+    exec_script = "source " + '/tmp/cimager/run_cimager.sh'
     with open(args.lg_file, 'r') as fin:
         aa = json.load(fin)
         nodes = aa['nodeDataArray']

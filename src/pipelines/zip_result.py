@@ -7,10 +7,12 @@ def parseResultDir(config_file) :
     resultDir = None
 
     with open(config_file, 'r') as configFile:
-    	lines = configFile.readlines()
-    	for line in lines:
-    		if line.index('Selavy.resultsFile') > -1 :
-    			resultDir = os.path.dirname(line.replace('Selavy.resultsFile = ', '').strip())
+    	configfile_path = configFile.readline()
+        with open(configfile_path, 'r') as fin:
+            lines = fin.readlines()
+        	for line in lines:
+        		if line.index('Selavy.resultsFile') > -1 :
+        			resultDir = os.path.dirname(line.replace('Selavy.resultsFile = ', '').strip())
 
     return resultDir
 

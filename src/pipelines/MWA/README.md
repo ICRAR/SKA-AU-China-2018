@@ -1,19 +1,37 @@
-To execute MWA calibration and imaging pipeline run
+1. The MWA observation data retrieval is split into 2 steps:
 
-./submit_mwa_graph.sh -j <NCPUS> -d <data_dir>  -o <obs_name>
+    * Query NGAS to get the list of files that belongs to the specified
+      ObsID (observation ID):
 
--j <NCPUS>: number of CPUs to use (single node)
--d <data_dir>: directory where all the data resides (or will reside)
--o <obs_name>: observation name
+      ```
+      ./query_mwa_obsid.py -i <obsid>
+      ```
 
-Data (3C444) directory: /home/data1/mwa_download/1089045008
+    * Then utilize the `ngas-get-files.py` script to do the data retrieval
+      from NGAS:
 
-./submit_mwa_graph_flagging.sh
+      ```
+      ../ngas-get-files.py -F <obsid>.list -o <obsid>.list
+      ```
 
--d <data_dir>:    Provide the directory where all the data resides (or will reside)
--o <obs_name>: Provide the observation name
--j <cpus>: how many cpus will be used
--H <host>: which host will be used to deploy
--p <port>: provied the port
- 
+2. To execute MWA calibration and imaging pipeline run:
 
+    ```
+    ./submit_mwa_graph.sh -j <NCPUS> -d <data_dir>  -o <obs_name>
+
+    -j <NCPUS>: number of CPUs to use (single node)
+    -d <data_dir>: directory where all the data resides (or will reside)
+    -o <obs_name>: observation name
+    ```
+
+3. Data (3C444) directory: `/home/data1/mwa_download/1089045008`
+
+    ```
+    ./submit_mwa_graph_flagging.sh
+
+    -d <data_dir>: Provide the directory where all the data resides (or will reside)
+    -o <obs_name>: Provide the observation name
+    -j <cpus>: how many cpus will be used
+    -H <host>: which host will be used to deploy
+    -p <port>: provied the port
+    ```

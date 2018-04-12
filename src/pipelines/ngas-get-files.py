@@ -36,7 +36,7 @@ def get_file(fileid, outfile=None, host=NGAS_HOST, port=NGAS_PORT):
         "port": port,
         "file_id": fileid
     }
-    cmd = ["wget", "-O", outfile, url]
+    cmd = ["curl", "-o", outfile, url]
     print("Retrieve CMD: %s" % " ".join(cmd))
     try:
         subprocess.check_call(cmd)
@@ -102,7 +102,8 @@ def main():
                         help="NGAS server port (default: %s)" % NGAS_PORT)
 
     grp = parser.add_mutually_exclusive_group(required=True)
-    grp.add_argument("-f", "--fileid", help="File ID/name in NGAS")
+    grp.add_argument("-f", "--fileid", nargs="+",
+                     help="File IDs/names in NGAS to be retrieved")
     grp.add_argument("-F", "--fileid-list", dest="fileid_list",
                      help="Text file containing a list of file ID/name in NGAS")
 
@@ -123,7 +124,7 @@ def main():
         else:
             outfiles = files
     else:
-        files = [args.fileid]
+        files = args.fileid
         if args.outfile:
             outfiles = [args.outfile]
         else:

@@ -1,3 +1,4 @@
+#!/bin/bash 
 # Currently we are hardcoding the names of the parsets/config-files etc. 
 # But this script should be able to read the meta-data information from 
 # NGAS and use appropriate naming conventions (including possibly DATA-ID etc).  
@@ -25,7 +26,7 @@ runfile_cimager=${workdir}/run_cimager.sh
 echo "Writing to: `pwd`"
 
 # 0. Pull data from NGAS:  
-echo "command to pull data ${indata} from NGAS" >${pullFromNGAS}
+echo "echo 'command-to-pull-data ${indata} from NGAS'" >${pullFromNGAS}
 #++++++++++++++++++++++++++++++++++++++
 
 # 1. Generate parset for cimager: 
@@ -129,4 +130,8 @@ echo "cimager -p -c ${parset_name} > ${log}" >>${cimager_config_name}
 echo "source ${cimager_config_name}" >${runfile_cimager}
 
 # 4. Prepare push to NGAS: 
-echo "command to push data ${outImageName} to NGAS" >${push2NGAS}
+
+filename_local=${workdir}/${outImageName}.restored.fits
+filename_ngas=${outImageName}.restored.fits
+content_type=image/fits
+echo "wget --post-file ${filename_local} --header 'Content-Type:${content_type}' http://159.226.233.198:7777/ARCHIVE?filename=${filename_ngas}" >${push2NGAS}

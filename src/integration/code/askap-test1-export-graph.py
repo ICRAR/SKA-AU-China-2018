@@ -57,8 +57,6 @@ class BuildGraph(AbstractBuildGraph):
                     ' && python imageComparison.py '
                     ' --im1 /tmp/cimager/image.askap.test.restored.fits'
                     ' --im2 /home/ska_au_china_2018/SKA-AU-China-2018/src/pipelines/askap_imaging/image.askap.reference.restored.fits'
-                    ' --nodelist 192.168.0.101,192.168.0.102,192.168.0.103,192.168.0.104 '
-                    ' --masterport 8002'
         )
         compare.addInput(memory_drop_03)
         compare.addInput(memory_drop_04)

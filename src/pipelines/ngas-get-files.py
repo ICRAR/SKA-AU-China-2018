@@ -149,6 +149,13 @@ def main():
                 print("*** delete and retrieve ***")
                 os.remove(fn)
 
+        outdir = os.path.dirname(fn)
+        try:
+            os.mkdir(outdir)
+        except OSError as e:
+            if e.errno == 17:
+                pass
+
         get_file(fid, outfile=fn, host=args.host, port=args.port)
         print("Calculating CRC32 for the local file ...")
         crc32_local = calc_crc32(fn)

@@ -13,7 +13,7 @@ Selavy.Fitter.useNoise = false
 Selavy.summaryFile = selavy-Summary.txt
 Selavy.fitAnnotationFile = selavy-Results-Fit.ann
 Selavy.fitBoxAnnotationFile = selavy-Results-Fit-boxes.ann
-Selavy.resultsFile = ${RESULT_PATH}/selavy-results.txt
+Selavy.resultsFile = ${RESULT_PATH}/selavy-results-new.txt
 #
 Selavy.flagVOT = true
 

@@ -9,6 +9,7 @@ from dlg.droputils import get_roots
 from dlg.manager.client import DataIslandManagerClient
 
 from build_graph_common import AbstractBuildGraph
+from wait_for_file_drop import WaitForFile
 
 NODE_ID = '192.168.0.101'
 LOGGER = logging.getLogger(__name__)
@@ -20,10 +21,13 @@ class BuildGraph(AbstractBuildGraph):
         self._host_id = kwargs['host']
 
     def build(self):
-        start_drop = self.create_memory_drop(
+        memory_drop_01 = self.create_memory_drop(
             node_id=NODE_ID,
         )
-        end_drop = self.create_memory_drop(
+        memory_drop_02 = self.create_memory_drop(
+            node_id=NODE_ID,
+        )
+        memory_drop_03 = self.create_memory_drop(
             node_id=NODE_ID,
         )
         bash_drop = self.create_bash_shell_app(
@@ -35,8 +39,16 @@ class BuildGraph(AbstractBuildGraph):
                     ' --nodelist 192.168.0.101,192.168.0.102,192.168.0.103,192.168.0.104 '
                     ' --masterport 8002'
         )
-        bash_drop.addInput(start_drop)
-        bash_drop.addOutput(end_drop)
+        bash_drop.addInput(memory_drop_01)
+        bash_drop.addOutput(memory_drop_02)
+
+        wait_for_file = self.create_app(
+            NODE_ID,
+            self.get_module_name(WaitForFile),
+            'app_copy_model',
+        )
+        wait_for_file.addInput(memory_drop_02)
+        wait_for_file.addOutput(memory_drop_03)
 
 
 def build_and_deploy_graph(**kwargs):

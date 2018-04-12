@@ -92,6 +92,25 @@ class AbstractBuildGraph:
         self.add_drop(drop)
         return drop
 
+    def create_app(self, node_id, app, oid, input_error_threshold=100, **key_word_arguments):
+        oid_text = self.get_oid(oid)
+        # uid_text = self.get_uuid()
+        drop = dropdict({
+            "type": 'app',
+            "app": app,
+            "oid": oid_text,
+            # "uid": uid_text,
+            "input_error_threshold": input_error_threshold,
+            "node": node_id,
+        })
+        drop.update(key_word_arguments)
+        self.add_drop(drop)
+        return drop
+
+    @staticmethod
+    def get_module_name(item):
+        return item.__module__ + '.' + item.__name__
+
     @staticmethod
     def get_session_id():
         return '{0}-{1}'.format(

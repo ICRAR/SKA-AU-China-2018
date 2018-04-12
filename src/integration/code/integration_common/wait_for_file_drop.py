@@ -23,7 +23,9 @@ class WaitForFile(BarrierAppDROP):
         self._starts_with = self._getArg(kwargs, 'starts_with', None)
 
     def run(self):
-        for filename in list(reversed(sorted(listdir(self._root_directory)))):
+        file_list = list(reversed(sorted(listdir(self._root_directory))))
+        LOGGER.info('Type: {}'. format(type(file_list)))
+        for filename in file_list:
             LOGGER.info('Looking at {}'.format(filename))
             if filename.startswith('dlg_work_dir_'):
                 LOGGER.info('Found {}'.format(filename))

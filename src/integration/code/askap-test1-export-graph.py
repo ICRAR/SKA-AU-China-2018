@@ -41,6 +41,26 @@ class BuildGraph(AbstractBuildGraph):
         bash_drop.addInput(memory_drop_01)
         bash_drop.addOutput(memory_drop_02)
 
+        wait_for_file = self.create_bash_shell_app(
+            node_id=NODE_ID,
+            command='sleep 30'
+        )
+        wait_for_file.addInput(memory_drop_02)
+        wait_for_file.addOutput(memory_drop_03)
+
+        compare = self.create_bash_shell_app(
+            node_id=NODE_ID,
+            command='cd /home/ska_au_china_2018/SKA-AU-China-2018/src/pipelines/askap_imaging'
+                    ' && python imageComparison.py '
+                    ' --im1 /tmp/cimager/image.askap.test.restored.fits'
+                    ' --im2 /home/ska_au_china_2018/SKA-AU-China-2018/src/pipelines/askap_imaging/image.askap.reference.restored.fits'
+                    ' --nodelist 192.168.0.101,192.168.0.102,192.168.0.103,192.168.0.104 '
+                    ' --masterport 8002'
+        )
+
+
+
+
 
 def build_and_deploy_graph(**kwargs):
     graph = BuildGraph(**kwargs)

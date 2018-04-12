@@ -10,11 +10,7 @@ function print_usage {
 }
 
 # Where are we?
-this_dir=`dirname $0`
-
-# The logical graph we want to submit
-lg_dir="$this_dir"/../logical_graphs
-lg_file="$lg_dir"/mwa/mwa.json
+lg_file=/home/ska_au_china_2018/SKA-AU-China-2018/src/pipelines/lg/mwa.json
 
 # Handle command-line arguments
 OBS_NAME=observation

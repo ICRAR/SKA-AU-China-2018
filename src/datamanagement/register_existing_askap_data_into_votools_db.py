@@ -19,7 +19,18 @@
 #    Foundation, Inc., 59 Temple Place, Suite 330, Boston,
 #    MA 02111-1307  USA
 #
-"""Ditto from filename"""
+"""Ditto from filename
+
+This script was used to import all the ASKAP datasets already stored in the
+NGAS SHAO installation into the VOTools database for exposing them as
+VO data products through the obscore interface.
+
+To achieve this, we ran this script as such:
+
+$> echo "select file_id from ngas_files;" | sqlite3 ~/NGAS/ngas.sqlite | \
+   xargs python register_existing_askap_data_into_votools_db.py 'host=XXX username=XXX password=XXX dbname=XXX'
+"""
+
 
 import contextlib
 import logging

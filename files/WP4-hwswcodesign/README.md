@@ -1,15 +1,16 @@
 # SKA-AU-China-2018 - **hwswcodesign**
 
 ## WP 4 – Hardware/software co-design
-Deliverable - Set up the workload characterisation framework on SHAO cluster that will inform the future hardware/software co-design work using an established algorithm (e.g. gridding, calibration).
+### Deliverable
+Set up the workload characterisation framework on SHAO cluster that will inform the future hardware/software co-design work using an established algorithm (e.g. gridding, calibration).
 
-## Achievements
-Installed and cofigured a time series database (openTSDB) a metric caprturing software package (glances) and some bechmark grpahs to load the cluster with a synthetic workload. The framework is monitoring the machines directly without the need to modify any code. Thus it will capture whatever workload is thrown on the cluster. 
+### Achievements
+Installed and configured a time series database (openTSDB) a metric capturing software package (glances) and some benchmark grpahs to load the cluster with a synthetic workload. The framework is monitoring the machines directly without the need to modify any code. Thus it will capture whatever workload is thrown on the cluster. 
 
-## Left out 
-We have concentrated on the implementation of monitoring CPU load, memory consumption and I/O and have skipped power monitring for now. 
-
+### Left out 
 When running glances with the default configuration, which essentially monitors everything possible, the process required 100% of one CPU most of the time. Thus this clearly would not scale very well. Thus we have enabled just a few things and the resulting load is quite low. 
+
+We have concentrated on the implementation of monitoring CPU load, memory consumption and I/O and have skipped power monitring for now. 
 
 We have also left out any feedback loop to DALiuGE or SLURM, which would be a whole project by itself. This would produce models for DALiuGE to use during scheduling and partitioning. The dynamic version of such models would very likely benefit from machine learning algorithms, which would then analyse the measurements collected during the latest run and update the models accordingly. 
 

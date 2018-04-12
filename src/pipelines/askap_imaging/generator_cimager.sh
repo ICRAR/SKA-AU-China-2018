@@ -5,20 +5,27 @@
 #++++++++++++++++++++++++++++++++++++++
 # Define the parset/config/log files: 
 #++++++++++++++++++++++++++++++++++++++
-parset_name=cimager.in
-cimager_config_name=cimager.config
-log=cimager.log
+app_name=cimager
+date_tag=`date +%Y-%m-%d-%H%M%S`
+workdir=/tmp/${app_name}_${date_tag}
+mkdir -p ${workdir}
+parset_name=${workdir}/cimager.in
+cimager_config_name=${workdir}/cimager.config
+log=${workdir}/cimager.log
 indata=/home/ska_au_china_2018/SKA-AU-China-2018/src/pipelines/askap_imaging/singleSource_Continuum.ms
 #indata=/home/cwu/askap_imaging/singleSource_Continuum.ms
-outImageName="image.I.1934-638_bm-0_iter-0"
+outImageName="${workdir}/image.askap.test" 
 #nchan=useful to decide resource needed; currently we are using fixed number of cores.
 nppn=1
 nnodes=1
+pullFromNGAS=${workdir}/pull_from_NGAS.sh
+push2NGAS=${workdir}/push_to_NGAS.sh
+runfile_cimager=${workdir}/run_cimager.sh 
 #++++++++++++++++++++++++++++++++++++++
-echo "Writing: `pwd`"
+echo "Writing to: `pwd`"
 
 # 0. Pull data from NGAS:  
-echo "command to pull data ${indata} from NGAS" >pull_from_NGAS.sh
+echo "command to pull data ${indata} from NGAS" >${pullFromNGAS}
 #++++++++++++++++++++++++++++++++++++++
 
 # 1. Generate parset for cimager: 
@@ -116,7 +123,7 @@ module load askapdata
 echo "srun --export=ALL --ntasks=${nnodes} --ntasks-per-node=${nppn} cimager -p -c ${parset_name} > ${log}" >>${cimager_config_name}
 #++++++++++++++++++++++++++++++++++++++
 # 3. Prepare the cimager execution command: 
-echo "source ${cimager_config_name}" >run_cimager.sh 
+echo "source ${cimager_config_name}" >${runfile_cimager}
 
 # 4. Prepare push to NGAS: 
-echo "command to push data ${outImageName} to NGAS" >push_to_NGAS.sh
+echo "command to push data ${outImageName} to NGAS" >${push2NGAS}

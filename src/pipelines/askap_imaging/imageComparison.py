@@ -13,14 +13,13 @@ im2=fits.getdata(options.im2)
 
 diff = im1-im2
 
-if im1.shape() == im2.shape():
+if im1.shape == im2.shape:
     sumsq = (diff**2).sum()
 
     if sumsq > 0.:
         print("FAIL")
     else:
         print("PASS")
-    
+
 else:
     print("FAIL")
-    

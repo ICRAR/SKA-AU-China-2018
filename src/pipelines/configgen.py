@@ -19,7 +19,7 @@ def convert(img_path):
     """
     """
     img_id = osp.basename(img_path.strip()).replace('.fits', '')
-    os.mkdir('%s/%s' % (work_dir, img_id))
+    #os.mkdir('%s/%s' % (work_dir, img_id))
     conf_str = tpl.safe_substitute({'FILE_PATH': img_path, 'RESULT_PATH': '%s/%s' % (work_dir, img_id)})
     conf_fpath = '%s/%.3f-%s.in' % (work_dir, time.time(), img_id)
     with open(conf_fpath, 'w') as confout:

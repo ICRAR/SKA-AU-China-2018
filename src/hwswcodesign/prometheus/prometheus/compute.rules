@@ -1,0 +1,1 @@
+node::node_filesystem_avail::percent= round(100*(min by (job,instance,mountpoint,fstype) (node_filesystem_avail{fstype !~ "rpc_pipefs|rootfs|tmpfs",device!="/etc/auto.misc",mountpoint !~ "/boot|/net|/selinux"}/node_filesystem_size{fstype !~ "rpc_pipefs|rootfs|tmpfs",device!="/etc/auto.misc",mountpoint !~ "/boot|/net|/selinux"})),0.01)

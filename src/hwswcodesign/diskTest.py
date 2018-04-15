@@ -36,10 +36,10 @@ Test = 'read'           # default test is readTest
 skip = 0        # default skip [GB]
 testcount = 1        # default number of consecutive tests
 iosize = 1073741824l    # default size of one test: 1 GB
-blocksize = 1024    # default size of IO blocks
+blocksize = 262144    # default size of IO blocks
 tcpsndbuf = None    # default tcp send buffer size
 dev = None              # no default for the actual device
-method = 'dd'           # default method for performing the tests
+method = 'myDD'           # default method for performing the tests
 pattern = 'abcd'        # default pattern to be used for writeTest
 bspeed = None
 old = 0
@@ -91,8 +91,7 @@ def usage():
                        write test)
           [c]rc:       string, if 'b' binascii is used, if 'z' zlib, if 'c'
                        crc32c is used.
-          [m]ethod:    flag, if set a python implementation of dd
-                       will be used.
+          [m]ethod:    flag, if set the system dd will be used.
           [l]owio:     [direct, async], this will switch to lower level I/O
                        using either the O_DIRECT or the O_ASYNC flag when opening
                        the file.
@@ -114,7 +113,7 @@ def usage():
                  of 4.
 
           Typical usage:
-          python ~/diskTest.py -d /mymnt/testio -b 262144 -w -m -c z -t 5 -l async
+          python diskTest.py -d /mymnt/testio -w -c z -t 5 -l async
 
           This performs 5 consecutive write tests on files /mymnt/testio* using
           a 256kB block size, the internal Python implementation of dd,
@@ -767,7 +766,7 @@ if __name__ == '__main__':
         if o in ("-o", "--old"):
             old = 1
         if o in ("-m", "--method"):
-            method = 'myDD'
+            method = 'dd'
         if o in ("-p", "--parallel"):
             parallel_stream = True
         if o in ("-S", "--Stats"):

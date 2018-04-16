@@ -26,9 +26,10 @@
 #    MA 02111-1307  USA
 #
 
-import time, pickle
+import time
+import pickle
 import commands
-import sys, re, os, socket, traceback, datetime, mmap, threading
+import sys, os, socket, traceback, datetime, mmap, threading
 import base64, glob
 from multiprocessing import Pool, cpu_count
 

@@ -10,11 +10,7 @@ function print_usage {
 }
 
 # Where are we?
-this_dir=`dirname $0`
-
-# The logical graph we want to submit
-lg_dir="$this_dir"/../logical_graphs
-lg_file="$lg_dir"/mwa/mwa.json
+lg_file=/home/ska_au_china_2018/SKA-AU-China-2018/src/pipelines/lg/mwa.json
 
 # Handle command-line arguments
 OBS_NAME=observation
@@ -48,4 +44,4 @@ now="$(date -u +%F_%T)"
 # Template into a Logical Graph).
 # Then translate into a physical graph template, partition, etc, and finally submit
 sed "s|\${NCPUS}|${NCPUS}|g; s|\${DATA_DIR}|${DATA_DIR}|g; s|\${OBS_NAME}|${OBS_NAME}|g" "$lg_file" \
-	| dlg unroll-and-partition | dlg map | dlg submit -s "${OBS_NAME}_${now}" -H 202.127.29.97 -p 8001
+	| dlg unroll-and-partition | dlg map -N 202.127.29.97,202.127.29.97 -i 1 | dlg submit -s "${OBS_NAME}_${now}" -H 202.127.29.97 -p 8001

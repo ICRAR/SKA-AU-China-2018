@@ -216,3 +216,6 @@ venv.bak/
 
 /SKA-AU-China-2018.iml
 /.idea/
+
+# build files of prometheus
+hwswcodesign/build/

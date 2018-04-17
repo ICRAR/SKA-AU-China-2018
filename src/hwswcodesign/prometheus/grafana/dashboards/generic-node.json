@@ -342,7 +342,7 @@
           "renderer": "flot",
           "seriesOverrides": [
             {
-              "alias": "node_memory_SwapFree{instance=\"172.17.0.1:9100\",job=\"prometheus\"}",
+              "alias": "node_memory_SwapFree{instance=\"$server\",job=\"prometheus\"}",
               "yaxis": 2
             }
           ],
@@ -533,7 +533,7 @@
               "yaxis": 1
             },
             {
-              "alias": "{instance=\"172.17.0.1:9100\"}",
+              "alias": "{instance=\"$server\"}",
               "yaxis": 2
             },
             {
@@ -731,7 +731,7 @@
               "yaxis": 1
             },
             {
-              "alias": "{instance=\"172.17.0.1:9100\"}",
+              "alias": "{instance=\"$server\"}",
               "yaxis": 2
             },
             {

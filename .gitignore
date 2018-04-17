@@ -218,5 +218,5 @@ venv.bak/
 /.idea/
 
 # build files of prometheus
-hwswcodesign/build/
-hwswcodesign/prometheus/grafana/data
+src/hwswcodesign/build/
+src/hwswcodesign/prometheus/grafana/data/

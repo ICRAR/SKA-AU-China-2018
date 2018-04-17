@@ -12,3 +12,6 @@ scrape_configs:
     static_configs:
       #- targets: ['192.168.1.17:9100', '192.168.1.17:9101', 'localhost:9090']
       - targets: ['180.149.250.158:9100', '180.149.250.158:9101', '180.149.251.161:9100', '180.149.251.162:9100', 'localhost:9090']
+      # for the internal docker tests, the following tragets line applies.
+      # Please adjust according to your IP address.
+      # targets: ['<host-ip>:9100', localhost:9090]

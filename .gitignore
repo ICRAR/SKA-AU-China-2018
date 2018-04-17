@@ -219,3 +219,4 @@ venv.bak/
 
 # build files of prometheus
 hwswcodesign/build/
+hwswcodesign/prometheus/grafana/data

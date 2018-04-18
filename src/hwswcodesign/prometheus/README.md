@@ -31,7 +31,8 @@ connect to the Grafana container using the url http://localhost:3000. The
 default username and password is admin/admin. In Grafana import the dashboard
 file dashboardDocker.json from the subdirectory prometheus/grafana/dashboards.
 You will also need to add the Prometheus data source, which is running in
-another container. Use Prometheus as the datasource name and the URL is http://<host-ip>:9090. Once that is done the Dashboard should just work and show
+another container. Use Prometheus as the datasource name and the URL is
+http://<host-ip>:9090. Once that is done the Dashboard should just work and show
 the metrics of the Docker container running the collector (node_exporter).
 
 For a more realistic deployment node-exporters can be launched on multiple

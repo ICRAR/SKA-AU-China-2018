@@ -1,0 +1,417 @@
+{
+    "class": "go.GraphLinksModel", 
+    "copiesArrayObjects": true, 
+    "copiesArrays": true, 
+    "linkDataArray": [
+        {
+            "from": -1, 
+            "fromPort": "output_trigger", 
+            "points": [
+                299.931640625, 
+                24.399609375, 
+                309.931640625, 
+                24.399609375, 
+                308, 
+                24.399609375, 
+                308, 
+                24.399609375, 
+                324, 
+                24.399609375, 
+                324, 
+                70, 
+                35.609375, 
+                70, 
+                35.609375, 
+                172.899609375, 
+                46.763671875, 
+                172.899609375, 
+                56.763671875, 
+                172.899609375
+            ], 
+            "to": -4, 
+            "toPort": "input_trigger"
+        }, 
+        {
+            "from": -4, 
+            "fromPort": "output_trigger", 
+            "points": [
+                250.791015625, 
+                172.899609375, 
+                260.791015625, 
+                172.899609375, 
+                260.791015625, 
+                173.399609375, 
+                260.791015625, 
+                173.399609375, 
+                297.609375, 
+                173.399609375, 
+                307.609375, 
+                173.399609375
+            ], 
+            "to": -3, 
+            "toPort": "input_trigger"
+        }, 
+        {
+            "from": -3, 
+            "fromPort": "output_pipe", 
+            "points": [
+                490.310546875, 
+                155.399609375, 
+                500.310546875, 
+                155.399609375, 
+                500.310546875, 
+                155.399609375, 
+                500.310546875, 
+                212, 
+                316, 
+                212, 
+                316, 
+                281.899609375, 
+                315.109375, 
+                281.899609375, 
+                325.109375, 
+                281.899609375
+            ], 
+            "to": -5, 
+            "toPort": "input_pipe"
+        }, 
+        {
+            "from": -5, 
+            "fromPort": "output_pipe", 
+            "points": [
+                496.484375, 
+                281.899609375, 
+                506.484375, 
+                281.899609375, 
+                508, 
+                281.899609375, 
+                508, 
+                444.399609375, 
+                566.935546875, 
+                444.399609375, 
+                576.935546875, 
+                444.399609375
+            ], 
+            "to": -10, 
+            "toPort": "input_pipe"
+        }
+    ], 
+    "linkFromPortIdProperty": "fromPort", 
+    "linkToPortIdProperty": "toPort", 
+    "nodeDataArray": [
+        {
+            "canHaveInputs": false, 
+            "canHaveOutputs": false, 
+            "category": "Description", 
+            "categoryType": "Other", 
+            "colour": " #9b3065", 
+            "fields": [
+                {
+                    "text": "Description", 
+                    "value": "Graph to load nodes with synthetic IO"
+                }
+            ], 
+            "inputPorts": [], 
+            "isData": false, 
+            "isGroup": false, 
+            "key": -21, 
+            "loc": "0 0", 
+            "outputPorts": [], 
+            "text": "Enter label", 
+            "type": "Graph Description"
+        }, 
+        {
+            "canHaveInputs": false, 
+            "canHaveOutputs": true, 
+            "category": "Start", 
+            "categoryType": "ControlComponent", 
+            "colour": " #229954", 
+            "fields": [], 
+            "inputPorts": [], 
+            "isData": false, 
+            "isGroup": false, 
+            "key": -1, 
+            "loc": "142.91796875 0", 
+            "outputPorts": [
+                {
+                    "Id": "output_trigger", 
+                    "IdText": "trigger"
+                }
+            ], 
+            "text": "Enter label", 
+            "type": "Start"
+        }, 
+        {
+            "Arg01": "/usr/bin/python /Users/awicenec/git/SKA-AU-China-2018/src/hwswcodesign/diskTest.py", 
+            "Arg02": "-d /Users/awicenec/tmp/testio", 
+            "Arg03": "-b 262144 -w -c z", 
+            "Arg04": "-t 1", 
+            "Arg05": "%o[-5]", 
+            "Arg06": "", 
+            "Arg07": "", 
+            "Arg08": "", 
+            "Arg09": "", 
+            "Arg10": "", 
+            "canHaveInputs": true, 
+            "canHaveOutputs": true, 
+            "category": "BashShellApp", 
+            "categoryType": "ApplicationDrop", 
+            "colour": " #1C2833", 
+            "execution_time": "5", 
+            "fields": [
+                {
+                    "name": "execution_time", 
+                    "text": "Execution time", 
+                    "value": "5"
+                }, 
+                {
+                    "name": "num_cpus", 
+                    "text": "Num CPUs", 
+                    "value": "1"
+                }, 
+                {
+                    "name": "group_start", 
+                    "text": "Group start", 
+                    "value": "0"
+                }, 
+                {
+                    "name": "Arg01", 
+                    "text": "Arg01", 
+                    "value": "/usr/bin/python /Users/awicenec/git/SKA-AU-China-2018/src/hwswcodesign/diskTest.py"
+                }, 
+                {
+                    "name": "Arg02", 
+                    "text": "Arg02", 
+                    "value": "-d /Users/awicenec/tmp/testio"
+                }, 
+                {
+                    "name": "Arg03", 
+                    "text": "Arg03", 
+                    "value": "-b 262144 -w -c z"
+                }, 
+                {
+                    "name": "Arg04", 
+                    "text": "Arg04", 
+                    "value": "-t 1"
+                }, 
+                {
+                    "name": "Arg05", 
+                    "text": "Arg05", 
+                    "value": "%o[-5]"
+                }, 
+                {
+                    "name": "Arg06", 
+                    "text": "Arg06", 
+                    "value": ""
+                }, 
+                {
+                    "name": "Arg07", 
+                    "text": "Arg07", 
+                    "value": ""
+                }, 
+                {
+                    "name": "Arg08", 
+                    "text": "Arg08", 
+                    "value": ""
+                }, 
+                {
+                    "name": "Arg09", 
+                    "text": "Arg09", 
+                    "value": ""
+                }, 
+                {
+                    "name": "Arg10", 
+                    "text": "Arg10", 
+                    "value": ""
+                }
+            ], 
+            "group": -14, 
+            "group_start": "0", 
+            "inputPorts": [
+                {
+                    "Id": "input_pipe", 
+                    "IdText": "pipe"
+                }, 
+                {
+                    "Id": "input_trigger", 
+                    "IdText": "trigger"
+                }
+            ], 
+            "isData": false, 
+            "isGroup": false, 
+            "key": -3, 
+            "loc": "307.609375 131", 
+            "num_cpus": "1", 
+            "outputPorts": [
+                {
+                    "Id": "output_pipe", 
+                    "IdText": "pipe"
+                }, 
+                {
+                    "Id": "output_trigger", 
+                    "IdText": "trigger"
+                }
+            ], 
+            "text": "basicShell", 
+            "type": "Shell App"
+        }, 
+        {
+            "canHaveInputs": true, 
+            "canHaveOutputs": true, 
+            "category": "memory", 
+            "categoryType": "DataDrop", 
+            "colour": " #394BB2", 
+            "data_volume": "5", 
+            "fields": [
+                {
+                    "name": "data_volume", 
+                    "text": "Data volume", 
+                    "value": "5"
+                }, 
+                {
+                    "name": "group_end", 
+                    "text": "Group end", 
+                    "value": "0"
+                }
+            ], 
+            "group_end": "0", 
+            "inputPorts": [
+                {
+                    "Id": "input_trigger", 
+                    "IdText": "trigger"
+                }
+            ], 
+            "isData": true, 
+            "isGroup": false, 
+            "key": -4, 
+            "loc": "56.763671875 148.5", 
+            "outputPorts": [
+                {
+                    "Id": "output_trigger", 
+                    "IdText": "trigger"
+                }
+            ], 
+            "shape": "Card", 
+            "text": "Enter label", 
+            "type": "Memory Drop"
+        }, 
+        {
+            "canHaveInputs": true, 
+            "canHaveOutputs": false, 
+            "category": "End", 
+            "categoryType": "ControlComponent", 
+            "colour": " #CB4335", 
+            "fields": [], 
+            "inputPorts": [
+                {
+                    "Id": "input_trigger", 
+                    "IdText": "trigger"
+                }, 
+                {
+                    "Id": "input_pipe", 
+                    "IdText": "pipe"
+                }
+            ], 
+            "isData": false, 
+            "isGroup": false, 
+            "key": -10, 
+            "loc": "565.609375 402", 
+            "outputPorts": [], 
+            "text": "Enter label", 
+            "type": "End"
+        }, 
+        {
+            "canHaveInputs": false, 
+            "canHaveOutputs": false, 
+            "category": "SplitData", 
+            "categoryType": "GroupComponent", 
+            "colour": " #DDAD00", 
+            "desiredSize": {
+                "class": "go.Size", 
+                "height": 289, 
+                "width": 256
+            }, 
+            "fields": [
+                {
+                    "name": "num_of_copies", 
+                    "text": "Number of copies", 
+                    "value": "4"
+                }, 
+                {
+                    "name": "scatter_axis", 
+                    "text": "Scatter axis", 
+                    "value": "time"
+                }
+            ], 
+            "inputPorts": [], 
+            "isData": false, 
+            "isGroup": true, 
+            "key": -14, 
+            "loc": "279.609375 120", 
+            "num_of_copies": "4", 
+            "outputPorts": [], 
+            "scatter_axis": "time", 
+            "text": "Enter label", 
+            "type": "Scatter"
+        }, 
+        {
+            "canHaveInputs": true, 
+            "canHaveOutputs": true, 
+            "category": "file", 
+            "categoryType": "DataDrop", 
+            "check_filepath_exists": "0", 
+            "colour": " #394BB2", 
+            "data_volume": "5", 
+            "dirname": "", 
+            "fields": [
+                {
+                    "name": "data_volume", 
+                    "text": "Data volume", 
+                    "value": "5"
+                }, 
+                {
+                    "name": "group_end", 
+                    "text": "Group end", 
+                    "value": "0"
+                }, 
+                {
+                    "name": "check_filepath_exists", 
+                    "text": "Check file path exists", 
+                    "value": "0"
+                }, 
+                {
+                    "name": "filepath", 
+                    "text": "File path", 
+                    "value": "/tmp/output.txt"
+                }, 
+                {
+                    "name": "dirname", 
+                    "text": "Directory name", 
+                    "value": ""
+                }
+            ], 
+            "filepath": "/tmp/output.txt", 
+            "group": -14, 
+            "group_end": "0", 
+            "inputPorts": [
+                {
+                    "Id": "input_pipe", 
+                    "IdText": "pipe"
+                }
+            ], 
+            "isData": true, 
+            "isGroup": false, 
+            "key": -5, 
+            "loc": "325.109375 257.5", 
+            "outputPorts": [
+                {
+                    "Id": "output_pipe", 
+                    "IdText": "pipe"
+                }
+            ], 
+            "shape": "Card", 
+            "text": "Output", 
+            "type": "File Drop"
+        }
+    ]
+}

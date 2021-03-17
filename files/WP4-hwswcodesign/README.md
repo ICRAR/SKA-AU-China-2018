@@ -5,7 +5,7 @@
 Set up the workload characterisation framework on SHAO cluster that will inform the future hardware/software co-design work using an established algorithm (e.g. gridding, calibration).
 
 ### Achievements
-Installed and configured a time series database (openTSDB) a metric capturing software package (glances) and some benchmark grpahs to load the cluster with a synthetic workload. The framework is monitoring the machines directly without the need to modify any code. Thus it will capture whatever workload is thrown on the cluster. 
+Installed and configured a time series database (openTSDB) a metric capturing software package (glances) and some benchmark graphs to load the cluster with a synthetic workload. The framework is monitoring the machines directly without the need to modify any code. Thus it will capture whatever workload is thrown on the cluster. 
 
 ### Left out 
 When running glances with the default configuration, which essentially monitors everything possible, the process required 100% of one CPU most of the time. Thus this clearly would not scale very well. Thus we have enabled just a few things and the resulting load is quite low. 
